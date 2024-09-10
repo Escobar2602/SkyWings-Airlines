@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\avionesController;
+use App\Http\Controllers\rvuelosController;
+use App\Http\Controllers\tiketController;
+use App\Http\Controllers\soporteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +31,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/crearaviones', [avionesController::class, 'index'])->name('aviones');
+    Route::get('/crearrutas', [rvuelosController::class, 'index'])->name('rutas');
+    Route::get('/tiket', [tiketController::class, 'index'])->name('tiket');
+    Route::get('/soporte', [soporteController::class, 'index'])->name('soporte');
 
 require __DIR__.'/auth.php';
