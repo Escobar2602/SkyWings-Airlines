@@ -21,15 +21,7 @@
                         <span class="ml-3 opacity-0 transition-all duration-300 ease-in-out group-hover:text-white">Dashboard</span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('aviones') }}" onclick="aviones()"
-                        class="flex items-center p-2 rounded-lg hover:bg-sky-700 transition-all duration-200 group hover:scale-105">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                        </svg>
-                        <span class="ml-3 opacity-0 transition-all duration-300 ease-in-out group-hover:text-white">Registro Aviones</span>
-                    </a>
-                </li>
+                
                 <li>
                     <a href="{{ route('rutas') }}" onclick="rutas()"
                         class="flex items-center p-2 rounded-lg hover:bg-sky-700 transition-all duration-200 group hover:scale-105">

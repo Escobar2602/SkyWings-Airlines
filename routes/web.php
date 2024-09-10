@@ -1,11 +1,12 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\AircraftController;
 use App\Http\Controllers\rvuelosController;
 use App\Http\Controllers\tiketController;
 use App\Http\Controllers\soporteController;
 use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,17 +35,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Gestión de aviones (AircraftController)
-    Route::get('/aircraft', [AircraftController::class, 'index'])->name('aircraft.index');
-    Route::post('/aircraft', [AircraftController::class, 'store'])->name('aircraft.store');
-    Route::put('/aircraft/{aircraft}', [AircraftController::class, 'update'])->name('aircraft.update');
-    Route::delete('/aircraft/{aircraft}', [AircraftController::class, 'destroy'])->name('aircraft.destroy');
+    
 });
 
 // Otras rutas (sin autenticación requerida)
-Route::get('/crearaviones', [AircraftController::class, 'index'])->name('aviones');
+
 Route::get('/crearrutas', [rvuelosController::class, 'index'])->name('rutas');
 Route::get('/tiket', [tiketController::class, 'index'])->name('tiket');
 Route::get('/soporte', [soporteController::class, 'index'])->name('soporte');
+
+
 
 // Rutas de autenticación generadas automáticamente
 require __DIR__.'/auth.php';
