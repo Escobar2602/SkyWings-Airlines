@@ -32,9 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-    Route::get('/aviones', [avionestroller::class, 'index'])->name('aviones');
-    Route::get('/rutas', [rvuelosController::class, 'index'])->name('rutas');
-    Route::get('/tikes', [tiketController::class, 'index'])->name('tiket');
-    Route::get('/soporte', [CartasController::class, 'index'])->name('soprte');
+Route::get('/crearaviones', [avionesController::class, 'index'])->name('aviones');
+    Route::get('/crearrutas', [rvuelosController::class, 'index'])->name('rutas');
+    Route::get('/tiket', [tiketController::class, 'index'])->name('tiket');
+    Route::get('/soporte', [soporteController::class, 'index'])->name('soporte');
 
 require __DIR__.'/auth.php';

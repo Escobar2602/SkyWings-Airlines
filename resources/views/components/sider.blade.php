@@ -24,7 +24,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('/aviones') }}" onclick="aviones()"
+                        <a href="{{ route('aviones') }}" onclick="aviones()"
                             class="flex items-center p-2 text-white rounded-lg hover:bg-[#bbbaba] group">
                             <div class="flex-shrink-0 w-6 h-6">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full h-full">
@@ -35,7 +35,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('/rutas') }}" onclick="rutas()"
+                        <a href="{{ route('rutas') }}" onclick="rutas()"
                             class="flex items-center p-2 text-white rounded-lg hover:bg-[#5989d1] group">
                             <div class="flex-shrink-0 w-6 h-6">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full h-full">
@@ -47,7 +47,7 @@
                     </li>
 
                     <li>
-                        <a href="{{ url('/tikes') }}" onclick="tiket()"
+                        <a href="{{ route('tiket') }}" onclick="tiket()"
                             class="flex items-center p-2 text-white rounded-lg hover:bg-[#bbbaba] group">
                             <div class="flex-shrink-0 w-6 h-6">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full h-full">
@@ -63,7 +63,7 @@
                 <div id="sidebar" class="mt-auto">
                     <ul class="nav-links">
                         <li>
-                            <a href="{{ url('/soporte') }}" onclick="soporte()"
+                            <a href="{{ route('soporte') }}" onclick="soporte()"
                                 class="flex items-center p-2 text-white rounded-lg hover:bg-[#bbbaba] group">
                                 <div class="flex-shrink-0 w-6 h-6">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full h-full">
