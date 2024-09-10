@@ -1,136 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Pipichon</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
-    <!--Replace with your tailwind.css once created-->
-    <link href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css" rel="stylesheet" />
-
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anemi - Tu puerta al cielo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine-ie11.min.js" defer></script>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
-
-      html {
-        font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-      }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(90deg, #3490dc, #6574cd);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
     </style>
-  </head>
-
-  <body class="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed" style="background-image: url('header.png');">
-    <div class="h-full">
-      <!--Nav-->
-      <div class="w-full container mx-auto">
-        <div class="w-full flex items-center justify-between">
-          <a class="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
-            Aguita de <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">Coco</span>
-          </a>
-
-          <div class="flex w-1/2 justify-end content-center">
-            <a class="inline-block text-blue-300 no-underline hover:text-pink-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out" href="https://twitter.com/intent/tweet?url=#">
-              <svg class="fill-current h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                <path
-                  d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"
-                ></path>
-              </svg>
-            </a>
-            <a
-              class="inline-block text-blue-300 no-underline hover:text-pink-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out"
-              href="https://www.facebook.com/sharer/sharer.php?u=#"
-            >
-              <svg class="fill-current h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                <path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!--Main-->
-      <div class="container pt-24 md:pt-36 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-        <!--Left Col-->
-        <div class="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden">
-          <h1 class="my-4 text-3xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-left">
-            Main
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
-              Hero Message
-            </span>
-            to sell yourself!
-          </h1>
-          <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left">
-            Sub-hero message, not too long and not too short. Make it just right!
-          </p>
-
-          <form class="bg-gray-900 opacity-75 w-full shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4">
-            <div class="mb-4">
-              <label class="block text-blue-300 py-2 font-bold mb-2" for="emailaddress">
-                Signup for our newsletter
-              </label>
-              <input
-                class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-                id="emailaddress"
-                type="text"
-                placeholder="you@somewhere.com"
-              />
-            </div>
-
-            <div class="flex items-center justify-between pt-4">
-              <button
-                class="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-                type="button"
-              >
-                Sign Up
-              </button>
-            </div>
-          </form>
-        </div>
-
-        <!--Right Col-->
-        <div class="w-full xl:w-3/5 p-12 overflow-hidden">
-          <img class="mx-auto w-full md:w-4/5 transform -rotate-6 transition hover:scale-105 duration-700 ease-in-out hover:rotate-6" src="macbook.svg" />
-        </div>
-
-        <div class="mx-auto md:pt-16">
-          <p class="text-blue-400 font-bold pb-8 lg:pb-6 text-center">
-            Download our app:
-          </p>
-          <div class="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
-            <img src="App Store.svg" class="h-12 pr-12 transform hover:scale-125 duration-300 ease-in-out" />
-            <img src="Play Store.svg" class="h-12 transform hover:scale-125 duration-300 ease-in-out" />
-          </div>
-        </div>
-
-        <!--Footer-->
-        <div class="w-full pt-16 pb-6 text-sm text-center md:text-left fade-in">
-          <a class="text-gray-500 no-underline hover:no-underline" href="#">&copy; App 2020</a>
-          - Template by
-          <a class="text-gray-500 no-underline hover:no-underline" href="https://www.tailwindtoolbox.com">TailwindToolbox.com</a>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-
-
-<body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Iniciar Seccion</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Registrarse</a>
-                        @endif
-                    @endauth
+</head>
+<body class="bg-gray-100">
+    <header x-data="{ isOpen: false }" class="bg-white shadow-md fixed w-full z-50">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-gray-800">
+                    <span class="text-blue-600">Anemis</span>
+                    <span class="text-gray-600 text-sm">Del Cielo</span>
                 </div>
-            @endif
-        </div>
-    </body>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300">Inicio</a>
+                    <a href="#destinos" class="text-gray-600 hover:text-blue-600 transition duration-300">Destinos</a>
+                    <a href="#ofertas" class="text-gray-600 hover:text-blue-600 transition duration-300">Ofertas</a>
+                    <a href="#sobre-nosotros" class="text-gray-600 hover:text-blue-600 transition duration-300">Sobre nosotros</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="{{ route('login') }}" class="gradient-bg text-white px-6 py-2 rounded-full hover:shadow-lg transition duration-300">Reservar vuelo</a>
+                    <button @click="isOpen = !isOpen" class="md:hidden focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+            <div x-show="isOpen" class="md:hidden mt-4">
+                <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Inicio</a>
+                <a href="#destinos" class="block py-2 text-gray-600 hover:text-blue-600">Destinos</a>
+                <a href="#ofertas" class="block py-2 text-gray-600 hover:text-blue-600">Ofertas</a>
+                <a href="#sobre-nosotros" class="block py-2 text-gray-600 hover:text-blue-600">Sobre nosotros</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative bg-cover bg-center h-screen flex items-center" style="background-image: url('https://source.unsplash.com/1600x900/?airplane,sky');">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate__animated animate__fadeInDown">Eleva tu experiencia de viaje</h1>
+                <p class="text-xl md:text-2xl text-white mb-8 animate__animated animate__fadeInUp">Descubre el mundo con Anemis</p>
+                <a href="{{ route('login') }}" class="gradient-bg text-white text-lg px-8 py-3 rounded-full hover:shadow-lg transition duration-300 animate__animated animate__fadeInUp">Reserva tu aventura ahora</a>
+            </div>
+        </section>
+
+        <!-- Búsqueda de vuelos -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Encuentra tu próximo vuelo</h2>
+                <form class="max-w-4xl mx-auto bg-gray-100 p-6 rounded-lg shadow-md">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div>
+                            <label for="origen" class="block text-gray-700 mb-2">Origen</label>
+                            <input type="text" id="origen" class="w-full p-2 border rounded" placeholder="Ciudad de origen">
+                        </div>
+                        <div>
+                            <label for="destino" class="block text-gray-700 mb-2">Destino</label>
+                            <input type="text" id="destino" class="w-full p-2 border rounded" placeholder="Ciudad de destino">
+                        </div>
+                        <div>
+                            <label for="fecha-ida" class="block text-gray-700 mb-2">Fecha de ida</label>
+                            <input type="date" id="fecha-ida" class="w-full p-2 border rounded">
+                        </div>
+                        <div>
+                            <label for="fecha-vuelta" class="block text-gray-700 mb-2">Fecha de vuelta</label>
+                            <input type="date" id="fecha-vuelta" class="w-full p-2 border rounded">
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <button type="submit" class="gradient-bg text-white px-8 py-3 rounded-full hover:shadow-lg transition duration-300">Buscar vuelos</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Destinos destacados -->
+        <section id="destinos" class="py-16 bg-gray-100">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Destinos populares</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-lift">
+                        <img src="{{ asset('/logo/Paris-1024x768.jpg') }}"  alt="París" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">París, Francia</h3>
+                            <p class="text-gray-700 mb-4">Explora la Ciudad de la Luz</p>
+                            <a href="#" class="text-blue-600 hover:underline">Ver ofertas</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-lift">
+                        <img src="{{ asset('/logo/tokio.jpg') }}" alt="Tokio" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">Tokio, Japón</h3>
+                            <p class="text-gray-700 mb-4">Sumérgete en la cultura oriental</p>
+                            <a href="#" class="text-blue-600 hover:underline">Ver ofertas</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-lift">
+                        <img src="{{ asset('/logo/nuevayork.jpg') }}" alt="Nueva York" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">Nueva York, EE.UU.</h3>
+                            <p class="text-gray-700 mb-4">Vive el sueño americano</p>
+                            <a href="#" class="text-blue-600 hover:underline">Ver ofertas</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ofertas especiales -->
+        <section id="ofertas" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Ofertas especiales</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-blue-100 rounded-lg p-6 shadow-md hover-lift">
+                        <h3 class="font-bold text-xl mb-2">Vuelos de último minuto</h3>
+                        <p class="text-gray-700 mb-4">¡Hasta 40% de descuento en vuelos seleccionados!</p>
+                        <a href="#" class="text-blue-600 hover:underline">Ver ofertas</a>
+                    </div>
+                    <div class="bg-green-100 rounded-lg p-6 shadow-md hover-lift">
+                        <h3 class="font-bold text-xl mb-2">Paquetes vacacionales</h3>
+                        <p class="text-gray-700 mb-4">Vuelo + Hotel con un 25% de descuento</p>
+                        <a href="#" class="text-blue-600 hover:underline">Ver paquetes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Por qué elegirnos -->
+        <section id="sobre-nosotros" class="py-16 bg-gray-100">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">¿Por qué volar con Anemis?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <i data-feather="shield" class="mx-auto text-blue-600 mb-4 h-12 w-12"></i>
+                        <h3 class="font-semibold text-xl mb-2">Seguridad garantizada</h3>
+                        <p class="text-gray-600">Tu bienestar es nuestra prioridad número uno</p>
+                    </div>
+                    <div class="text-center">
+                        <i data-feather="clock" class="mx-auto text-blue-600 mb-4 h-12 w-12"></i>
+                        <h3 class="font-semibold text-xl mb-2">Puntualidad</h3>
+                        <p class="text-gray-600">Respetamos tu tiempo y el de tus seres queridos</p>
+                    </div>
+                    <div class="text-center">
+                        <i data-feather="star" class="mx-auto text-blue-600 mb-4 h-12 w-12"></i>
+                        <h3 class="font-semibold text-xl mb-2">Servicio 5 estrellas</h3>
+                        <p class="text-gray-600">Experiencia de vuelo superior en cada viaje</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonios -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Lo que dicen nuestros pasajeros</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 mb-4">"El mejor servicio que he experimentado en una aerolínea. ¡Definitivamente volaré con Anemis de nuevo!"</p>
+                        <p class="font-semibold">- María G.</p>
+                    </div>
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 mb-4">"Puntualidad impecable y personal amable. Mi viaje fue muy cómodo y placentero."</p>
+                        <p class="font-semibold">- Carlos R.</p>
+                    </div>
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                        <p class="text-gray-600 mb-4">"Las ofertas de Anemis son imbatibles. He podido viajar más gracias a sus precios competitivos."</p>
+                        <p class="font-semibold">- Ana L.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 gradient-bg">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">¿Listo para despegar?</h2>
+                <p class="text-xl text-white mb-8">Reserva tu vuelo hoy y obtén un 15% de descuento en tu próximo viaje</p>
+                <a href="{{ route('login') }}" class="bg-white text-blue-600 text-lg px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300">Reservar ahora</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">
