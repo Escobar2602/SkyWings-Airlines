@@ -1,13 +1,13 @@
 <x-app-layout>
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
-                <h2 class="text-2xl font-semibold mb-4">Gestión de Aeronaves</h2>
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="p-6 overflow-hidden bg-white shadow-xl sm:rounded-lg">
+                <h2 class="mb-4 text-2xl font-semibold">Gestión de Aeronaves</h2>
 
                 <!-- Formulario para agregar aeronave -->
-                <form id="aircraftForm" class="mb-8">
+                <form id="aircraftForm" class="mb-8" enctype="multipart/form-data">
                     @csrf
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                         <div>
                             <label for="model" class="block mb-2">Modelo de Aeronave</label>
                             <input type="text" id="model" name="model" class="w-full border-gray-300 rounded-md" required>
@@ -29,9 +29,13 @@
                                 <option value="regional">Regional</option>
                             </select>
                         </div>
+                        <div>
+                            <label for="image" class="block mb-2">Imagen de la Aeronave</label>
+                            <input type="file" id="image" name="image" class="w-full border-gray-300 rounded-md" accept="image/*">
+                        </div>
                     </div>
                     <div class="mt-4">
-                        <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Guardar Aeronave</button>
+                        <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">Guardar Aeronave</button>
                     </div>
                 </form>
 
@@ -39,11 +43,12 @@
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Modelo</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Asientos</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Placa</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tipo</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+                            <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Modelo</th>
+                            <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Asientos</th>
+                            <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Placa</th>
+                            <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Tipo</th>
+                            <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Imagen</th>
+                            <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="aircraftTableBody" class="bg-white divide-y divide-gray-200">
@@ -53,8 +58,15 @@
                             <td class="px-6 py-4 whitespace-nowrap">{{ $plane->seats }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $plane->plate }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $plane->type }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <button onclick="editAircraft({{ $plane->id }})" class="text-indigo-600 hover:text-indigo-900 mr-2">Editar</button>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                @if($plane->image)
+                                    <img src="{{ asset('storage/' . $plane->image) }}" alt="{{ $plane->model }}" class="object-cover w-10 h-10 rounded-full">
+                                @else
+                                    N/A
+                                @endif
+                            </td>
+                            <td class="px-6 py-4 text-sm font-medium whitespace-nowrap">
+                                <button onclick="editAircraft({{ $plane->id }})" class="mr-2 text-indigo-600 hover:text-indigo-900">Editar</button>
                                 <button onclick="deleteAircraft({{ $plane->id }})" class="text-red-600 hover:text-red-900">Eliminar</button>
                             </td>
                         </tr>
@@ -97,8 +109,11 @@
                     <td class="px-6 py-4 whitespace-nowrap">${aircraft.seats}</td>
                     <td class="px-6 py-4 whitespace-nowrap">${aircraft.plate}</td>
                     <td class="px-6 py-4 whitespace-nowrap">${aircraft.type}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <button onclick="editAircraft(${aircraft.id})" class="text-indigo-600 hover:text-indigo-900 mr-2">Editar</button>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        ${aircraft.image ? `<img src="/storage/${aircraft.image}" alt="${aircraft.model}" class="object-cover w-10 h-10 rounded-full">` : 'N/A'}
+                    </td>
+                    <td class="px-6 py-4 text-sm font-medium whitespace-nowrap">
+                        <button onclick="editAircraft(${aircraft.id})" class="mr-2 text-indigo-600 hover:text-indigo-900">Editar</button>
                         <button onclick="deleteAircraft(${aircraft.id})" class="text-red-600 hover:text-red-900">Eliminar</button>
                     </td>
                 `;
@@ -106,6 +121,7 @@
             }
 
             window.editAircraft = function(id) {
+                // Implement edit functionality
                 console.log('Editar aeronave con ID:', id);
             }
 
