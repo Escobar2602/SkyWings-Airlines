@@ -5,10 +5,11 @@
     <aside id="default-sidebar"
         class="fixed top-0 left-0 w-16 h-screen transition-all duration-300 ease-in-out transform pointer-events-auto sm:translate-x-0"
         aria-label="Sidebar">
-        <div class="flex flex-col h-full px-3 py-4 bg-gradient-to-br from-sky-800 to-blue-900 text-sky-100">
+        <div class="flex flex-col h-full px-3 py-4 text-white bg-gradient-to-br from-blue-800 to-purple-900">
             <div class="mb-6 ml-1">
-                <BR></BR><img id="sidebar-logo" src="{{ asset('logo/pngwing.com (1).png') }}"
-                    alt="Camg" class="w-[200px] h-[50px] transition-all duration-300 ">
+                <BR></BR>
+                {{-- <img id="sidebar-logo" src="{{ asset('logo/pngwing.com (1).png') }}"
+                    alt="Camg" class="w-[200px] h-[50px] transition-all duration-300 "> --}}
             </div>
 
             <ul id="sidebar-menu" class="flex-grow space-y-4 font-medium">
@@ -66,7 +67,7 @@
 <!--- Toggle Button --->
 <div class="fixed z-[10000] top-4 left-4">
     <input id="toggle-sidebar" type="checkbox" class="hidden peer">
-    <label for="toggle-sidebar" class="flex flex-col items-center justify-center p-1 space-y-1 transition-colors duration-200 rounded-md cursor-pointer w-7 h-7 bg-sky-700 hover:bg-sky-600">
+    <label for="toggle-sidebar" class="flex flex-col items-center justify-center p-1 space-y-1 transition-colors duration-200 rounded-md cursor-pointer w-7 h-7">
         <div class="w-full h-0.5 bg-white rounded-lg transition-all duration-300 origin-right peer-checked:rotate-45 peer-checked:translate-y-[5px]"></div>
         <div class="w-full h-0.5 bg-white rounded-lg transition-all duration-300 peer-checked:opacity-0"></div>
         <div class="w-full h-0.5 bg-white rounded-lg transition-all duration-300 origin-right peer-checked:-rotate-45 peer-checked:-translate-y-[5px]"></div>
