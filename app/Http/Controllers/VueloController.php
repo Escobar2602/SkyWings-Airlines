@@ -30,3 +30,5 @@ class VueloController extends Controller
         return redirect()->back()->with('success', 'Ruta de vuelo creada exitosamente.');
     }
 }
+
+   
