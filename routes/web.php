@@ -5,6 +5,10 @@ use App\Http\Controllers\rvuelosController;
 use App\Http\Controllers\tiketController;
 use App\Http\Controllers\soporteController;
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
+=======
+
+>>>>>>> Jcamargo
 use App\Http\Controllers\AircraftController;
 
 
@@ -42,7 +46,10 @@ Route::middleware('auth')->group(function () {
     Route::put('/aircraft/{aircraft}', [AircraftController::class, 'update'])->name('aircraft.update');
     Route::delete('/aircraft/{aircraft}', [AircraftController::class, 'destroy'])->name('aircraft.destroy');
     Route::get('/api/latest-aircraft', [AircraftController::class, 'fetchLatestAircraft'])->name('latest-aircraft');
+<<<<<<< HEAD
 
+=======
+>>>>>>> Jcamargo
 });
 
 // Otras rutas (sin autenticación requerida)
