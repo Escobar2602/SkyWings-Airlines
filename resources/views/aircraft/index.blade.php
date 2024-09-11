@@ -55,56 +55,99 @@
                     </div>
                     <div class="mt-4">
                         <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Registrar Avión</button>
-                    </div>
-                </form>
+    <div class="py-12 bg-gray-50">
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="overflow-hidden bg-white shadow-lg sm:rounded-lg">
+                <div class="p-6 sm:p-8">
+                    <h2 class="pb-2 mb-6 text-2xl font-semibold text-gray-800 border-b">Gestión de Flota</h2>
 
-                <h3 class="text-lg font-semibold mb-4">Lista de Aviones Registrados</h3>
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Modelo</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Asientos</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Placa</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tipo</th>
-<<<<<<< HEAD
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Imagen</th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach ($airplanes as $airplane)
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $airplane->model }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $airplane->seats }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $airplane->plate }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $airplane->type }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    @if($airplane->image)
-                                        <img src="{{ asset('storage/' . $airplane->image) }}" alt="Imagen del avión" class="w-20 h-20 object-cover">
-                                    @else
-                                        Sin imagen
-                                    @endif
-                                </td>
-                            </tr>
-=======
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="aircraftTableBody" class="bg-white divide-y divide-gray-200">
-                        @foreach ($aircraft as $plane)
-                        <tr data-id="{{ $plane->id }}">
-                            <td class="px-6 py-4 whitespace-nowrap">{{ $plane->model }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ $plane->seats }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ $plane->plate }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ $plane->type }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <button onclick="editAircraft({{ $plane->id }})" class="text-indigo-600 hover:text-indigo-900 mr-2">Editar</button>
-                                <button onclick="deleteAircraft({{ $plane->id }})" class="text-red-600 hover:text-red-900">Eliminar</button>
-                            </td>
-                        </tr>
->>>>>>> d8d5a5630bd7c65f422ae6515df935415da1f37a
-                        @endforeach
-                    </tbody>
-                </table>
+                    @if (session('success'))
+                        <div class="p-4 mb-6 text-sm text-green-700 bg-green-100 border border-green-200 rounded-lg" role="alert">
+                            <span class="font-medium">Éxito:</span> {{ session('success') }}
+                        </div>
+                    @endif
+
+                    <!-- Formulario para agregar aeronave -->
+                    <div class="p-6 mb-8 bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <h3 class="pb-2 mb-4 text-lg font-medium text-gray-700 border-b">Agregar Nueva Aeronave</h3>
+                        <form id="aircraftForm" action="{{ route('aircraft.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                                <div>
+                                    <label for="model" class="block mb-2 text-sm font-medium text-gray-700">Modelo de Aeronave</label>
+                                    <input type="text" id="model" name="model" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" required>
+                                </div>
+                                <div>
+                                    <label for="seats" class="block mb-2 text-sm font-medium text-gray-700">Número de Asientos</label>
+                                    <input type="number" id="seats" name="seats" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" required>
+                                </div>
+                                <div>
+                                    <label for="plate" class="block mb-2 text-sm font-medium text-gray-700">Matrícula</label>
+                                    <input type="text" id="plate" name="plate" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" required>
+                                </div>
+                                <div>
+                                    <label for="type" class="block mb-2 text-sm font-medium text-gray-700">Tipo de Aeronave</label>
+                                    <select id="type" name="type" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" required>
+                                        <option value="">Seleccione un tipo</option>
+                                        <option value="narrowBody">Fuselaje Estrecho</option>
+                                        <option value="wideBody">Fuselaje Ancho</option>
+                                        <option value="regional">Regional</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="image" class="block mb-2 text-sm font-medium text-gray-700">Imagen de la Aeronave</label>
+                                    <input type="file" id="image" name="image" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" accept="image/*">
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <button type="submit" class="px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                    Agregar Aeronave
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Tabla de aeronaves -->
+                    <div class="overflow-x-auto bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Modelo</th>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Asientos</th>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Matrícula</th>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Tipo</th>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Imagen</th>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="aircraftTableBody" class="bg-white divide-y divide-gray-200">
+                                @foreach ($aircraft as $plane)
+                                <tr data-id="{{ $plane->id }}" class="transition duration-150 ease-in-out hover:bg-gray-50">
+                                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">{{ $plane->model }}</td>
+                                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">{{ $plane->seats }}</td>
+                                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">{{ $plane->plate }}</td>
+                                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">{{ $plane->type }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        @if($plane->image)
+                                            <img src="{{ asset('storage/' . $plane->image) }}" alt="{{ $plane->model }}" class="object-cover w-10 h-10 rounded-full">
+                                        @else
+                                            <span class="text-gray-400">N/A</span>
+                                        @endif
+                                    </td>
+                                    <td class="px-6 py-4 text-sm font-medium whitespace-nowrap">
+                                        <button onclick="editAircraft({{ $plane->id }})" class="mr-3 text-blue-600 transition duration-150 ease-in-out hover:text-blue-900">Editar</button>
+                                        <form action="{{ route('aircraft.destroy', $plane->id) }}" method="POST" class="inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-red-600 transition duration-150 ease-in-out hover:text-red-900" onclick="return confirm('¿Está seguro de que desea eliminar esta aeronave?')">Eliminar</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -121,7 +164,7 @@
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const formData = new FormData(form);
-                fetch('/aircraft', {
+                fetch(form.action, {
                     method: 'POST',
                     body: formData,
                     headers: {
@@ -139,40 +182,30 @@
             function addAircraftToTable(aircraft) {
                 const row = document.createElement('tr');
                 row.setAttribute('data-id', aircraft.id);
+                row.classList.add('hover:bg-gray-50', 'transition', 'duration-150', 'ease-in-out');
                 row.innerHTML = `
-                    <td class="px-6 py-4 whitespace-nowrap">${aircraft.model}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">${aircraft.seats}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">${aircraft.plate}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">${aircraft.type}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <button onclick="editAircraft(${aircraft.id})" class="text-indigo-600 hover:text-indigo-900 mr-2">Editar</button>
-                        <button onclick="deleteAircraft(${aircraft.id})" class="text-red-600 hover:text-red-900">Eliminar</button>
+                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.model}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.seats}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.plate}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.type}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        ${aircraft.image ? `<img src="/storage/${aircraft.image}" alt="${aircraft.model}" class="object-cover w-10 h-10 rounded-full">` : '<span class="text-gray-400">N/A</span>'}
+                    </td>
+                    <td class="px-6 py-4 text-sm font-medium whitespace-nowrap">
+                        <button onclick="editAircraft(${aircraft.id})" class="mr-3 text-blue-600 transition duration-150 ease-in-out hover:text-blue-900">Editar</button>
+                        <form action="/aircraft/${aircraft.id}" method="POST" class="inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-600 transition duration-150 ease-in-out hover:text-red-900" onclick="return confirm('¿Está seguro de que desea eliminar esta aeronave?')">Eliminar</button>
+                        </form>
                     </td>
                 `;
                 tableBody.appendChild(row);
             }
 
             window.editAircraft = function(id) {
+                // Implementar funcionalidad de edición
                 console.log('Editar aeronave con ID:', id);
-            }
-
-            window.deleteAircraft = function(id) {
-                if (confirm('¿Estás seguro de que quieres eliminar esta aeronave?')) {
-                    fetch(`/aircraft/${id}`, {
-                        method: 'DELETE',
-                        headers: {
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                        }
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            document.querySelector(`tr[data-id="${id}"]`).remove();
-                        } else {
-                            throw new Error('Error al eliminar la aeronave');
-                        }
-                    })
-                    .catch(error => console.error('Error:', error));
-                }
             }
         });
     </script>

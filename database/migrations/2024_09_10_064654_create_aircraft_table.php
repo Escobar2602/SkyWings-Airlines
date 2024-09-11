@@ -14,6 +14,7 @@ return new class extends Migration
             $table->integer('seats');
             $table->string('plate')->unique();
             $table->enum('type', ['narrowBody', 'wideBody', 'regional']);
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
