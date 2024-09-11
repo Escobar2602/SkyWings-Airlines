@@ -11,8 +11,14 @@
             <div class="p-6 overflow-hidden bg-white shadow-xl sm:rounded-lg">
                 <h2 class="mb-4 text-2xl font-semibold">Gestión de Aeronaves</h2>
 
+                @if (session('success'))
+                    <div class="relative px-4 py-3 mb-4 text-green-700 bg-green-100 border border-green-400 rounded" role="alert">
+                        <span class="block sm:inline">{{ session('success') }}</span>
+                    </div>
+                @endif
+
                 <!-- Formulario para agregar aeronave -->
-                <form id="aircraftForm" class="mb-8" enctype="multipart/form-data">
+                <form id="aircraftForm" action="{{ route('aircraft.store') }}" method="POST" class="mb-8" enctype="multipart/form-data">
                     @csrf
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                         <div>
@@ -74,7 +80,11 @@
                             </td>
                             <td class="px-6 py-4 text-sm font-medium whitespace-nowrap">
                                 <button onclick="editAircraft({{ $plane->id }})" class="mr-2 text-indigo-600 hover:text-indigo-900">Editar</button>
-                                <button onclick="deleteAircraft({{ $plane->id }})" class="text-red-600 hover:text-red-900">Eliminar</button>
+                                <form action="{{ route('aircraft.destroy', $plane->id) }}" method="POST" class="inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('¿Estás seguro de que quieres eliminar esta aeronave?')">Eliminar</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
@@ -93,7 +103,7 @@
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const formData = new FormData(form);
-                fetch('/aircraft', {
+                fetch(form.action, {
                     method: 'POST',
                     body: formData,
                     headers: {
@@ -121,7 +131,11 @@
                     </td>
                     <td class="px-6 py-4 text-sm font-medium whitespace-nowrap">
                         <button onclick="editAircraft(${aircraft.id})" class="mr-2 text-indigo-600 hover:text-indigo-900">Editar</button>
-                        <button onclick="deleteAircraft(${aircraft.id})" class="text-red-600 hover:text-red-900">Eliminar</button>
+                        <form action="/aircraft/${aircraft.id}" method="POST" class="inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('¿Estás seguro de que quieres eliminar esta aeronave?')">Eliminar</button>
+                        </form>
                     </td>
                 `;
                 tableBody.appendChild(row);
@@ -130,25 +144,6 @@
             window.editAircraft = function(id) {
                 // Implement edit functionality
                 console.log('Editar aeronave con ID:', id);
-            }
-
-            window.deleteAircraft = function(id) {
-                if (confirm('¿Estás seguro de que quieres eliminar esta aeronave?')) {
-                    fetch(`/aircraft/${id}`, {
-                        method: 'DELETE',
-                        headers: {
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                        }
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            document.querySelector(`tr[data-id="${id}"]`).remove();
-                        } else {
-                            throw new Error('Error al eliminar la aeronave');
-                        }
-                    })
-                    .catch(error => console.error('Error:', error));
-                }
             }
         });
     </script>
