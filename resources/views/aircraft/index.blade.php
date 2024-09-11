@@ -4,8 +4,8 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
                 <h2 class="text-2xl font-semibold mb-4">Gestión de Aeronaves</h2>
 
-                <!-- Formulario para agregar/editar aeronave -->
-                <form id="aircraftForm" enctype="multipart/form-data" class="mb-8">
+                <!-- Formulario para agregar aeronave -->
+                <form id="aircraftForm" class="mb-8">
                     @csrf
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
@@ -29,10 +29,6 @@
                                 <option value="regional">Regional</option>
                             </select>
                         </div>
-                        <div>
-                            <label for="image" class="block mb-2">Imagen del Avión</label>
-                            <input type="file" id="image" name="image" class="w-full border-gray-300 rounded-md">
-                        </div>
                     </div>
                     <div class="mt-4">
                         <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Guardar Aeronave</button>
@@ -47,7 +43,6 @@
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Asientos</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Placa</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tipo</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Imagen</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
                         </tr>
                     </thead>
@@ -58,13 +53,6 @@
                             <td class="px-6 py-4 whitespace-nowrap">{{ $plane->seats }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $plane->plate }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $plane->type }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                @if($plane->image)
-                                    <img src="{{ asset('storage/' . $plane->image) }}" alt="Imagen del avión" class="w-20 h-20 object-cover">
-                                @else
-                                    Sin imagen
-                                @endif
-                            </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                 <button onclick="editAircraft({{ $plane->id }})" class="text-indigo-600 hover:text-indigo-900 mr-2">Editar</button>
                                 <button onclick="deleteAircraft({{ $plane->id }})" class="text-red-600 hover:text-red-900">Eliminar</button>
@@ -109,9 +97,6 @@
                     <td class="px-6 py-4 whitespace-nowrap">${aircraft.seats}</td>
                     <td class="px-6 py-4 whitespace-nowrap">${aircraft.plate}</td>
                     <td class="px-6 py-4 whitespace-nowrap">${aircraft.type}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        ${aircraft.image ? `<img src="/storage/${aircraft.image}" alt="Imagen del avión" class="w-20 h-20 object-cover">` : 'Sin imagen'}
-                    </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                         <button onclick="editAircraft(${aircraft.id})" class="text-indigo-600 hover:text-indigo-900 mr-2">Editar</button>
                         <button onclick="deleteAircraft(${aircraft.id})" class="text-red-600 hover:text-red-900">Eliminar</button>
@@ -121,7 +106,6 @@
             }
 
             window.editAircraft = function(id) {
-                // Implementar lógica de edición
                 console.log('Editar aeronave con ID:', id);
             }
 
