@@ -1,6 +1,12 @@
 <x-guest-layout>
     <div class="flex items-center justify-center min-h-screen bg-center  bg-cover relative"
         style="background-image: url('{{ asset('images/cnne-1061170-auxiliar-de-vuelo.jpg') }}');">
+
+          {{-- <!-- Imagen al lado izquierdo, centrada y más grande -->
+          <div class="lg:block  flex justify-center mr-10">
+            <img src="{{ asset('gif/airplane-12212_512.gif') }}" alt="Imagen Asistencia" class="hidden sm:block ml-0 h-[700px] sm:w-full">
+        </div> --}}
+
         <div class="bg-slate-100 p-8 rounded-lg shadow-lg max-w-lg mx-auto filter backdrop-blur-lg mr-72">
             <!-- Título del formulario -->
             <div class="text-center mb-6">

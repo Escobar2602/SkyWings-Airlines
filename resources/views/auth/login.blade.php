@@ -1,9 +1,6 @@
 <x-guest-layout>
     <div class="flex items-center justify-center min-h-screen bg-center bg-cover relative"
         style="background-image: url('{{ asset('images/983433.png') }}');">
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-black/50"></div>
-
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -14,8 +11,8 @@
             </div>
 
             <!-- Título -->
-            <h2 class="text-3xl font-semibold text-center text-indigo-900 mb-4">Ingresa tu usuario</h2>
-            <p class="text-center text-gray-300 mb-6">Si ya eres parte de Anemis, ingresa tus datos:</p>
+            <h2 class="text-5xl font-extrabold text-center text-black mb-6">Ingresa tu usuario</h2>
+            <p class="text-center text-white mb-6">Si ya eres parte de <span class="text-blue-600 font-bold text-xl">ANEMIS</span>, ingresa tus datos:</p>
 
             <!-- Formulario -->
             <form method="POST" action="{{ route('login') }}" class="space-y-4">
@@ -36,17 +33,17 @@
                     <x-input-label for="password" :value="__('Password')" class="text-left ml-16"/>
                     <x-text-input id="password"
                         class="block mx-auto mt-1 w-3/4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-300"
-                        type="password" name="password" required autocomplete="current-password" />
+                        type="password" name="password" required autocomplete="current-password" placeholder="Password" />
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
-                <!-- Remember Me -->
+                <!-- Recordar -->
                 <div class="block mt-4 text-center">
                     <label for="remember_me" class="inline-flex items-center">
                         <input id="remember_me" type="checkbox"
                             class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500 transition duration-300"
                             name="remember">
-                        <span class="ml-2 text-sm text-gray-300">{{ __('Remember me') }}</span>
+                        <span class="ml-2 text-sm text-gray-300">{{ __('Recordar') }}</span>
                     </label>
                 </div>
 
@@ -61,7 +58,7 @@
 
             <!-- Crear cuenta -->
             <div class="text-center mt-6">
-                <a href="{{ route('register') }}" class="text-pink-400 font-semibold hover:underline hover:text-pink-500 transition duration-300">Crear cuenta</a>
+                <a href="{{ route('register') }}" class="text-black font-semibold hover:underline hover:text-blue-500 transition duration-300">Crear cuenta</a>
             </div>
 
             <!-- Recuperar acceso -->
