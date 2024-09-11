@@ -6,6 +6,8 @@ use App\Http\Controllers\tiketController;
 use App\Http\Controllers\soporteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AircraftController;
+use App\Http\Controllers\VueloController;
+
 
 
 
@@ -50,6 +52,7 @@ Route::get('/crearrutas', [rvuelosController::class, 'index'])->name('rutas');
 Route::get('/tiket', [tiketController::class, 'index'])->name('tiket');
 Route::get('/soporte', [soporteController::class, 'index'])->name('soporte');
 Route::get('/crearaviones', [AircraftController::class, 'index'])->name('aviones');
+Route::post('/vuelos', [VueloController::class, 'store'])->name('vuelos.store');
 
 Route::resource('aircraft', AircraftController::class);
 // Rutas de autenticación generadas automáticamente
