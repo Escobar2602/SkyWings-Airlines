@@ -7,8 +7,8 @@
         aria-label="Sidebar">
         <div class="flex flex-col h-full px-3 py-4 bg-gradient-to-br from-sky-800 to-blue-900 text-sky-100">
             <div class="mb-6 ml-1">
-                <BR></BR><img id="sidebar-logo" src="{{ asset('/logo/motor.png') }}"
-                    alt="Camg" class="w-[50px] h-[50px] transition-all duration-300 hover:rotate-180">
+                <BR></BR><img id="sidebar-logo" src="{{ asset('logo/pngwing.com (1).png') }}"
+                    alt="Camg" class="w-[200px] h-[50px] transition-all duration-300 ">
             </div>
 
             <ul id="sidebar-menu" class="flex-grow space-y-4 font-medium">
