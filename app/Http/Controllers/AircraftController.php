@@ -31,7 +31,11 @@ class AircraftController extends Controller
 
         $aircraft = Aircraft::create($validated);
 
-        return response()->json($aircraft, 201);
+        if ($request->ajax()) {
+            return response()->json($aircraft, 201);
+        }
+
+        return redirect()->route('aircraft.index')->with('success', 'Aeronave creada exitosamente.');
     }
 
     public function update(Request $request, Aircraft $aircraft)
@@ -54,7 +58,11 @@ class AircraftController extends Controller
 
         $aircraft->update($validated);
 
-        return response()->json($aircraft, 200);
+        if ($request->ajax()) {
+            return response()->json($aircraft, 200);
+        }
+
+        return redirect()->route('aircraft.index')->with('success', 'Aeronave actualizada exitosamente.');
     }
 
     public function destroy(Aircraft $aircraft)
@@ -65,6 +73,10 @@ class AircraftController extends Controller
 
         $aircraft->delete();
 
-        return response()->json(null, 204);
+        if (request()->ajax()) {
+            return response()->json(null, 204);
+        }
+
+        return redirect()->route('aircraft.index')->with('success', 'Aeronave eliminada exitosamente.');
     }
 }
