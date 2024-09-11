@@ -49,6 +49,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/crearrutas', [rvuelosController::class, 'index'])->name('rutas');
 Route::get('/tiket', [tiketController::class, 'index'])->name('tiket');
 Route::get('/soporte', [soporteController::class, 'index'])->name('soporte');
+Route::get('/crearaviones', [AircraftController::class, 'index'])->name('aviones');
 
 Route::resource('aircraft', AircraftController::class);
 // Rutas de autenticación generadas automáticamente
