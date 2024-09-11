@@ -1,16 +1,16 @@
 <x-guest-layout>
-    <div class="flex items-center justify-center min-h-screen bg-center  bg-cover relative"
+    <div class="flex flex-col lg:flex-row items-center justify-center min-h-screen bg-center bg-cover relative"
         style="background-image: url('{{ asset('images/cnne-1061170-auxiliar-de-vuelo.jpg') }}');">
 
-          {{-- <!-- Imagen al lado izquierdo, centrada y más grande -->
-          <div class="lg:block  flex justify-center mr-10">
-            <img src="{{ asset('gif/airplane-12212_512.gif') }}" alt="Imagen Asistencia" class="hidden sm:block ml-0 h-[700px] sm:w-full">
+        {{-- <!-- Imagen visible solo en pantallas grandes -->
+        <div class="hidden lg:flex justify-center lg:mr-10 lg:w-1/2 max-w-xs lg:max-w-md">
+            <img src="{{ asset('gif/airplane-12212_512.gif') }}" alt="Imagen Asistencia" class="h-auto w-full max-h-[500px] object-contain">
         </div> --}}
 
-        <div class="bg-slate-100 p-8 rounded-lg shadow-lg max-w-lg mx-auto filter backdrop-blur-lg mr-72">
+        <div class="bg-slate-100 p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-md lg:max-w-lg mx-4 lg:mx-0 filter backdrop-blur-lg">
             <!-- Título del formulario -->
-            <div class="text-center mb-6">
-                <h2 class="text-3xl font-semibold text-gray-900">Crea tu cuenta</h2>
+            <div class="text-center mb-4 sm:mb-6">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900">Crea tu cuenta</h2>
                 <p class="text-gray-500">Completa los datos para unirte a nuestra comunidad</p>
             </div>
 
@@ -51,12 +51,12 @@
                 </div>
 
                 <!-- Acciones -->
-                <div class="flex items-center justify-between">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
                     <a class="text-sm text-indigo-600 hover:underline" href="{{ route('login') }}">
                         {{ __('¿Ya tienes cuenta? Inicia sesión') }}
                     </a>
 
-                    <x-primary-button class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg">
+                    <x-primary-button class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg w-full sm:w-auto">
                         {{ __('Registrarse') }}
                     </x-primary-button>
                 </div>
