@@ -21,9 +21,6 @@
                         <span class="ml-3 transition-all duration-300 ease-in-out opacity-0 group-hover:text-white">Dashboard</span>
                     </a>
                 </li>
-<<<<<<< HEAD
-                
-=======
                 <li>
                     <a href="{{ route('aviones') }}" onclick="aviones()"
                         class="flex items-center p-2 transition-all duration-200 rounded-lg hover:bg-sky-700 group hover:scale-105">
@@ -33,7 +30,6 @@
                         <span class="ml-3 transition-all duration-300 ease-in-out opacity-0 group-hover:text-white">Registro Aviones</span>
                     </a>
                 </li>
->>>>>>> d8d5a5630bd7c65f422ae6515df935415da1f37a
                 <li>
                     <a href="{{ route('rutas') }}" onclick="rutas()"
                         class="flex items-center p-2 transition-all duration-200 rounded-lg hover:bg-sky-700 group hover:scale-105">
