@@ -27,14 +27,26 @@
                     <a href="#sobre-nosotros" class="text-gray-600 transition duration-300 hover:text-blue-600">Sobre
                         nosotros</a>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <a href="{{ route('login') }}"
-                        class="px-6 py-2 text-white transition duration-300 rounded-full gradient-bg hover:shadow-lg">Reservar
-                        vuelo</a>
-                    <button @click="isOpen = !isOpen" class="md:hidden focus:outline-none">
-                        <i data-feather="menu"></i>
-                    </button>
-                </div>
+
+                <a href="{{ route('login') }}" class="relative inline-block h-12 p-3 overflow-hidden text-base font-bold text-left transition-all duration-500 border border-transparent rounded-lg group bg-sky-800 w-60 text-gray-50 hover:bg-sky-600 hover:text-sky-900 hover:border-sky-300 hover:underline hover:underline-offset-4 hover:decoration-2">
+                    <span class="relative z-20">Reservar vuelo</span>
+
+                    <!-- Avión hecho con pseudo-elementos -->
+                    <div class="absolute left-0 transition-transform duration-700 ease-in-out transform -translate-x-full -translate-y-1/2 top-1/2 group-hover:translate-x-full">
+                      <div class="relative w-12 h-8">
+                        <!-- Cuerpo del avión -->
+                        <div class="absolute w-8 h-2 bg-gray-50 left-2 top-3"></div>
+                        <!-- Cola del avión -->
+                        <div class="absolute left-0 w-2 h-3 bg-gray-50 top-2"></div>
+                        <!-- Alas del avión -->
+                        <div class="absolute w-8 h-1 rotate-45 bg-gray-50 left-1 top-1"></div>
+                        <div class="absolute w-8 h-1 -rotate-45 bg-gray-50 left-1 top-5"></div>
+                        <!-- Cabina del avión -->
+                        <div class="absolute w-2 h-2 bg-gray-300 rounded-full left-7 top-2"></div>
+                      </div>
+                    </div>
+                  </a>
+
             </div>
             <div x-show="isOpen" class="mt-4 md:hidden">
                 <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Inicio</a>
