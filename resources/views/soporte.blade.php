@@ -388,7 +388,7 @@
         };
 
         return responses[message.toLowerCase()] ||
-            'Lamentablemente, en este momento no puedo asistirte directamente debido a mis capacidades limitadas. Sin embargo, puedes enviar una solicitud a través del siguiente enlace, y estaré encantado de ayudarte tan pronto como sea posible:  https://tecnologicocomfenalco.edu.co/solicitudes-academicas-tecnologico-comfenalco/ .';
+            'Lamentablemente, en este momento no puedo asistirte directamente debido a mis capacidades limitadas.';
     }
 
 
