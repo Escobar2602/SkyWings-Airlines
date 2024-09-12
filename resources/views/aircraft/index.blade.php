@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gestión de Flota</title>
+</head>
 <x-app-layout>
     <div class="py-12 bg-gray-50">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -164,7 +172,8 @@
                 tableBody.appendChild(row);
             }
 
-            window.editAircraft = function(id) {
+            win
+dow.editAircraft = function(id) {
                 // Implementar funcionalidad de edición
                 console.log('Editar aeronave con ID:', id);
             }
