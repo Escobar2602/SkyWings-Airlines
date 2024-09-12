@@ -21,14 +21,14 @@ class VueloController extends Controller
         Vuelo::create([
             'origen' => $request->origen,
             'destino' => $request->destino,
-            'hora_salida' => $request->hora_salida,
-            'hora_llegada' => $request->hora_llegada,
+            'hora_salida' => $request->dia_salida . ' ' . $request->hora_salida . ':00', // Concatenar la fecha y hora
+            'hora_llegada' => $request->dia_salida . ' ' . $request->hora_llegada . ':00',
             'dia_salida' => $request->dia_salida,
             'valor' => $request->valor,
         ]);
+
 
         return redirect()->back()->with('success', 'Ruta de vuelo creada exitosamente.');
     }
 }
 
-   

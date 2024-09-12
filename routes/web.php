@@ -1,15 +1,12 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\rvuelosController;
-use App\Http\Controllers\tiketController;
-use App\Http\Controllers\soporteController;
+use App\Http\Controllers\RvuelosController;
+use App\Http\Controllers\TiketController;
+use App\Http\Controllers\SoporteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AircraftController;
 use App\Http\Controllers\VueloController;
-
-
-
 
 
 /*
@@ -17,8 +14,9 @@ use App\Http\Controllers\VueloController;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Estas son las rutas web de la aplicación. Todas están cargadas por
-| el RouteServiceProvider y pertenecen al grupo "web" middleware.
+| Aquí es donde puedes registrar las rutas web para tu aplicación. Estas
+| rutas son cargadas por el RouteServiceProvider dentro de un grupo que
+| contiene el grupo de middleware "web".
 |
 */
 
@@ -47,13 +45,15 @@ Route::middleware('auth')->group(function () {
 });
 
 // Otras rutas (sin autenticación requerida)
-
-Route::get('/crearrutas', [rvuelosController::class, 'index'])->name('rutas');
-Route::get('/tiket', [tiketController::class, 'index'])->name('tiket');
-Route::get('/soporte', [soporteController::class, 'index'])->name('soporte');
+Route::get('/crearrutas', [RvuelosController::class, 'index'])->name('rutas');
+Route::get('/tiket', [TiketController::class, 'index'])->name('tiket');
+Route::get('/soporte', [SoporteController::class, 'index'])->name('soporte');
 Route::get('/crearaviones', [AircraftController::class, 'index'])->name('aviones');
 Route::post('/vuelos', [VueloController::class, 'store'])->name('vuelos.store');
 
+
+
 Route::resource('aircraft', AircraftController::class);
+
 // Rutas de autenticación generadas automáticamente
 require __DIR__.'/auth.php';
