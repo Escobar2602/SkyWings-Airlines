@@ -10,16 +10,14 @@ use App\Http\Controllers\VueloController;
 use App\Http\Controllers\TicketController;
 
 
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Estas son las rutas web de la aplicación. Todas están cargadas por
-| el RouteServiceProvider y pertenecen al grupo "web" middleware.
+| Aquí es donde puedes registrar las rutas web para tu aplicación. Estas
+| rutas son cargadas por el RouteServiceProvider dentro de un grupo que
+| contiene el grupo de middleware "web".
 |
 */
 
@@ -56,6 +54,9 @@ Route::get('/soporte', [soporteController::class, 'index'])->name('soporte');
 Route::get('/crearaviones', [AircraftController::class, 'index'])->name('aviones');
 Route::post('/vuelos', [VueloController::class, 'store'])->name('vuelos.store');
 
+
+
 Route::resource('aircraft', AircraftController::class);
+
 // Rutas de autenticación generadas automáticamente
 require __DIR__.'/auth.php';
