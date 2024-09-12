@@ -29,4 +29,13 @@ class VueloController extends Controller
 
         return redirect()->back()->with('success', 'Ruta de vuelo creada exitosamente.');
     }
+    public function getOrigins()
+    {
+        return Vuelo::distinct('origen')->pluck('origen');
+    }
+
+    public function getDestinations()
+    {
+        return Vuelo::distinct('destino')->pluck('destino');
+    }
 }

@@ -2,11 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\rvuelosController;
-use App\Http\Controllers\tiketController;
 use App\Http\Controllers\soporteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AircraftController;
 use App\Http\Controllers\VueloController;
+
+use App\Http\Controllers\TicketController;
 
 
 
@@ -46,10 +47,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/api/latest-aircraft', [AircraftController::class, 'fetchLatestAircraft'])->name('latest-aircraft');
 });
 
+
+Route::get('/tickets/search', [TicketController::class, 'index'])->name('tickets.search');
 // Otras rutas (sin autenticación requerida)
 
 Route::get('/crearrutas', [rvuelosController::class, 'index'])->name('rutas');
-Route::get('/tiket', [tiketController::class, 'index'])->name('tiket');
 Route::get('/soporte', [soporteController::class, 'index'])->name('soporte');
 Route::get('/crearaviones', [AircraftController::class, 'index'])->name('aviones');
 Route::post('/vuelos', [VueloController::class, 'store'])->name('vuelos.store');
