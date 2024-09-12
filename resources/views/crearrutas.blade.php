@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Crea Ruta Vuelos</title>
+
+
 </head>
 <x-app-layout>
 
@@ -91,9 +93,10 @@
                     </div>
 
                     <div class="flex justify-center mt-3">
-                        <button type="submit"
-                            class="px-3 py-1.5 bg-purple-700 text-white rounded-lg hover:bg-purple-800 focus:outline-none">Crear
-                            ruta de vuelo</button>
+                        <button type="button" id="crearRutaVueloBtn"
+                            class="px-3 py-1.5 bg-purple-700 text-white rounded-lg hover:bg-purple-800 focus:outline-none">
+                            Crear ruta de vuelo
+                        </button>
                     </div>
                 </div>
             </form>
@@ -101,7 +104,41 @@
 
 
 
-        <script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+          <script>
+                document.getElementById('crearRutaVueloBtn').addEventListener('click', function() {
+                    // Obtener los valores de los campos
+                    const origin = document.getElementById('origin').value;
+                    const destination = document.getElementById('destination').value;
+                    const hora_salida = document.getElementById('hora_salida').value;
+                    const hora_llegada = document.getElementById('hora_llegada').value;
+                    const dia_salida = document.getElementById('dia_salida').value;
+                    const valor = document.getElementById('valor').value;
+
+                    // Validar si algún campo está vacío
+                    if (!origin || !destination || !hora_salida || !hora_llegada || !dia_salida || !valor) {
+                        Swal.fire({
+                            title: "Advertencia",
+                            text: "Por favor complete todos los campos antes de enviar.",
+                            icon: "warning"
+                        });
+                    } else {
+                        Swal.fire({
+                            title: "Buen trabajo",
+                            text: "Creó su ruta de vuelo con éxito",
+                            icon: "success"
+                        }).then(() => {
+                            // Después de cerrar la alerta, se envía el formulario si todos los campos están completos
+                            document.getElementById('rutaVueloForm').submit();
+                        });
+                    }
+                });
+
+
+
+
             const originSelect = document.getElementById('origin');
             const destinationSelect = document.getElementById('destination');
 

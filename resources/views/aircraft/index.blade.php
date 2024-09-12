@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gestión de Flota</title>
-</head>
 <x-app-layout>
     <div class="py-12 bg-gray-50">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -61,10 +53,29 @@
                                 </div>
                             </div>
                             <div class="mt-6">
-                                <button type="submit" class="px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                <button id="agregarAeronaveBtn" type="submit" class="px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                     Agregar Aeronave
                                 </button>
                             </div>
+                            </form>
+
+                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+                            <script>
+                                document.getElementById('agregarAeronaveBtn').addEventListener('click', function(event) {
+                                    // Prevenir el envío inmediato del formulario
+                                    event.preventDefault();
+
+                                    Swal.fire({
+                                        title: "Buen trabajo",
+                                        text: "Registro una areonave",
+                                        icon: "success"
+                                    }).then(() => {
+                                        // Aquí se envía el formulario después de que se cierre la alerta
+                                    });
+                                });
+                            </script>
+
                         </form>
                     </div>
 
@@ -172,8 +183,7 @@
                 tableBody.appendChild(row);
             }
 
-            win
-dow.editAircraft = function(id) {
+            window.editAircraft = function(id) {
                 // Implementar funcionalidad de edición
                 console.log('Editar aeronave con ID:', id);
             }
