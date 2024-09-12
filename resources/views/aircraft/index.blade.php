@@ -42,6 +42,15 @@
                                     <label for="image" class="block mb-2 text-sm font-medium text-gray-700">Imagen de la Aeronave</label>
                                     <input type="file" id="image" name="image" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" accept="image/*">
                                 </div>
+                                <div>
+                                    <label for="vuelo_id" class="block mb-2 text-sm font-medium text-gray-700">Ruta de Vuelo</label>
+                                    <select id="vuelo_id" name="vuelo_id" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500">
+                                        <option value="">Seleccione una ruta de vuelo</option>
+                                        @foreach ($vuelos as $vuelo)
+                                            <option value="{{ $vuelo->id }}">{{ $vuelo->origen }} - {{ $vuelo->destino }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <div class="mt-6">
                                 <button type="submit" class="px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
@@ -61,6 +70,7 @@
                                     <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Matrícula</th>
                                     <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Tipo</th>
                                     <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Imagen</th>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Ruta de Vuelo</th>
                                     <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Acciones</th>
                                 </tr>
                             </thead>
@@ -74,6 +84,13 @@
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         @if($plane->image)
                                             <img src="{{ asset('storage/' . $plane->image) }}" alt="{{ $plane->model }}" class="object-cover w-10 h-10 rounded-full">
+                                        @else
+                                            <span class="text-gray-400">N/A</span>
+                                        @endif
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">
+                                        @if($plane->vuelo)
+                                            {{ $plane->vuelo->origen }} - {{ $plane->vuelo->destino }}
                                         @else
                                             <span class="text-gray-400">N/A</span>
                                         @endif
@@ -130,7 +147,10 @@
                     <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.plate}</td>
                     <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.type}</td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        ${aircraft.image ? <img src="/storage/${aircraft.image}" alt="${aircraft.model}" class="object-cover w-10 h-10 rounded-full"> : '<span class="text-gray-400">N/A</span>'}
+                        ${aircraft.image ? `<img src="/storage/${aircraft.image}" alt="${aircraft.model}" class="object-cover w-10 h-10 rounded-full">` : '<span class="text-gray-400">N/A</span>'}
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">
+                        ${aircraft.vuelo ? `${aircraft.vuelo.origen} - ${aircraft.vuelo.destino}` : '<span class="text-gray-400">N/A</span>'}
                     </td>
                     <td class="px-6 py-4 text-sm font-medium whitespace-nowrap">
                         <button onclick="editAircraft(${aircraft.id})" class="mr-3 text-blue-600 transition duration-150 ease-in-out hover:text-blue-900">Editar</button>

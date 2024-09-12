@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Aircraft;
+use App\Models\Vuelo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -11,7 +12,8 @@ class AircraftController extends Controller
     public function index()
     {
         $aircraft = Aircraft::all();
-        return view('aircraft.index', compact('aircraft'));
+        $vuelos = Vuelo::all();
+        return view('aircraft.index', compact('aircraft', 'vuelos'));
     }
 
     public function store(Request $request)
@@ -22,6 +24,7 @@ class AircraftController extends Controller
             'plate' => 'required|string|unique:aircraft,plate|max:255',
             'type' => 'required|in:narrowBody,wideBody,regional',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'vuelo_id' => 'nullable|exists:vuelos,id',
         ]);
 
         if ($request->hasFile('image')) {
@@ -46,6 +49,7 @@ class AircraftController extends Controller
             'plate' => 'required|string|unique:aircraft,plate,' . $aircraft->id . '|max:255',
             'type' => 'required|in:narrowBody,wideBody,regional',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'vuelo_id' => 'nullable|exists:vuelos,id',
         ]);
 
         if ($request->hasFile('image')) {

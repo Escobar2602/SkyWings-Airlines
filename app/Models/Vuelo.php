@@ -16,6 +16,16 @@ class Vuelo extends Model
         'hora_llegada',
         'dia_salida',
         'valor',
+        'aircraft_id',
     ];
+
+    public function aircraft()
+    {
+        return $this->belongsTo(Aircraft::class);
+    }
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
 }
-    
