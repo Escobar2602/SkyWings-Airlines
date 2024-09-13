@@ -10,77 +10,77 @@
                     favor contactar con el equipo de desarrollo
                 </p>
             </header>
-            <div class="flex flex-wrap justify-center gap-5">
+            <div class="flex flex-wrap justify-center gap-8">
                 <div
-                    class="w-5/12 bg-white p-5 border border-gray-200 rounded-lg shadow-sm transition-transform duration-200 hover:transform hover:translate-y-[-5px] hover:shadow-md">
-                    <h2 class="mb-4 text-xl text-blue-800">Web Developer</h2>
-                    <p class="text-lg font-semibold text-gray-800">Javier Teheran M</p>
-                    <p class="mb-4 text-sm text-gray-600">About: Backend Developer / Base De Datos</p>
-                    <p class="text-sm text-gray-600"><i class="fas fa-map-marker-alt"></i> Dirección: Centro de
-                        Innovación</p>
-                    <p class="text-sm text-gray-600"><i class="fas fa-phone-alt"></i> Phone #: + 800 - 12 12 23 52</p>
-                    <div class="flex gap-2 mt-4">
+                    class="product-card w-[350px] rounded-md shadow-xl overflow-hidden relative cursor-pointer py-10 px-8 bg-white flex flex-col items-center justify-center gap-4 transition-all duration-300 group hover:scale-105">
+                    <div class="absolute top-0 left-[-30%] group-hover:rotate-12 transition-all duration-300 group-hover:scale-150">
+                        <div class="flex gap-1">
+                            <svg class="fill-gray-300 rotate-[24deg]" stroke-linejoin="round" stroke-linecap="round" stroke-width="1"
+                                fill="none" viewBox="0 0 24 24" height="220" width="220" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="absolute rounded-full bg-gray-500 z-20 left-1/2 top-[50%] h-[120%] w-[120%] -translate-x-1/2 group-hover:top-[60%] transition-all duration-300"></div>
+                    <div class="z-40 leading-none text-center uppercase para">
+                        <h2 class="text-2xl font-bold text-blue-800">Web Developer</h2>
+                        <p class="text-lg font-semibold text-gray-800">Hackect</p>
+                        <p class="text-sm text-gray-600">Backend Developer / Base de Datos</p>
+                    </div>
+                    <p class="text-base text-gray-600"><i class="fas fa-map-marker-alt"></i> Dirección: Centro de Innovación</p>
+                    <p class="text-base text-gray-600"><i class="fas fa-phone-alt"></i> Phone #: + 800 - 12 12 23 52</p>
+                   <BR></BR> <div class="z-40 flex gap-3 mt-5">
                         <button
-                            class="flex items-center gap-1 px-4 py-2 text-white bg-green-500 rounded-lg hover:bg-green-400"
+                            class="flex items-center gap-2 px-5 py-3 text-white transition duration-200 bg-green-500 rounded-lg hover:bg-green-400"
                             onclick="chatWith('Javier Teheran M')">
-                            <i class="fas fa-comments"></i>
+                            <i class="fas fa-comments"></i> Chat
                         </button>
                         <button
-                            class="flex items-center gap-1 px-4 py-2 text-white bg-blue-900 rounded-lg hover:bg-blue-800"
+                            class="flex items-center gap-2 px-5 py-3 text-white transition duration-200 bg-blue-900 rounded-lg hover:bg-blue-800"
                             onclick="viewProfile('Javier Teheran M')">
                             <i class="fas fa-user"></i> View Profile
                         </button>
                     </div>
                 </div>
-                <div
-                    class="w-5/12 bg-white p-5 border border-gray-200 rounded-lg shadow-sm transition-transform duration-200 hover:transform hover:translate-y-[-5px] hover:shadow-md">
-                    <h2 class="mb-4 text-xl text-blue-800">Web Developer</h2>
-                    <p class="text-lg font-semibold text-gray-800">Jose Camargo</p>
-                    <p class="mb-4 text-sm text-gray-600">About: Web Designer / Software Developer / Backend Developer
-                    </p>
-                    <p class="text-sm text-gray-600"><i class="fas fa-map-marker-alt"></i> Dirección: Centro de
-                        Innovación</p>
-                    <p class="text-sm text-gray-600"><i class="fas fa-phone-alt"></i> Phone #: + 800 - 12 12 23 52</p>
-                    <div class="flex gap-2 mt-4">
-                        <button
-                            class="flex items-center gap-1 px-4 py-2 text-white bg-green-500 rounded-lg hover:bg-green-400"
-                            onclick="chatWith('Jose Camargo')">
-                            <i class="fas fa-comments"></i>
-                        </button>
-                        <button
-                            class="flex items-center gap-1 px-4 py-2 text-white bg-blue-900 rounded-lg hover:bg-blue-800"
-                            onclick="viewProfile('Jose Camargo')">
-                            <i class="fas fa-user"></i> View Profile
-                        </button>
+
+                <!-- Repite el mismo código para otros perfiles como Jose Camargo y Carlos Escobar -->
+                <div class="flex flex-wrap justify-center gap-8">
+                    <div
+                        class="product-card w-[350px] rounded-md shadow-xl overflow-hidden relative cursor-pointer py-10 px-8 bg-white flex flex-col items-center justify-center gap-4 transition-all duration-300 group hover:scale-105">
+                        <div class="absolute top-0 left-[-30%] group-hover:rotate-12 transition-all duration-300 group-hover:scale-150">
+                            <div class="flex gap-1">
+                                <svg class="fill-gray-300 rotate-[24deg]" stroke-linejoin="round" stroke-linecap="round" stroke-width="1"
+                                    fill="none" viewBox="0 0 24 24" height="220" width="220" xmlns="http://www.w3.org/2000/svg">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="absolute rounded-full bg-gray-500 z-20 left-1/2 top-[50%] h-[120%] w-[120%] -translate-x-1/2 group-hover:top-[60%] transition-all duration-300"></div>
+                        <div class="z-40 leading-none text-center uppercase para">
+                            <h2 class="text-2xl font-bold text-blue-800">Web Developer</h2>
+                            <p class="text-lg font-semibold text-gray-800">Hackect</p>
+                            <p class="text-sm text-gray-600">Backend Developer / Base de Datos</p>
+                        </div>
+                        <p class="text-base text-gray-600"><i class="fas fa-map-marker-alt"></i> Dirección: Centro de Innovación</p>
+                        <p class="text-base text-gray-600"><i class="fas fa-phone-alt"></i> Phone #: + 800 - 12 12 23 52</p>
+                       <BR></BR> <div class="z-40 flex gap-3 mt-5">
+                            <button
+                                class="flex items-center gap-2 px-5 py-3 text-white transition duration-200 bg-green-500 rounded-lg hover:bg-green-400"
+                                onclick="chatWith('Javier Teheran M')">
+                                <i class="fas fa-comments"></i> Chat
+                            </button>
+                            <button
+                                class="flex items-center gap-2 px-5 py-3 text-white transition duration-200 bg-blue-900 rounded-lg hover:bg-blue-800"
+                                onclick="viewProfile('Javier Teheran M')">
+                                <i class="fas fa-user"></i> View Profile
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div
-                    class="w-5/12 bg-white p-5 border border-gray-200 rounded-lg shadow-sm transition-transform duration-200 hover:transform hover:translate-y-[-5px] hover:shadow-md">
-                    <h2 class="mb-4 text-xl text-blue-800">Web Developer</h2>
-                    <p class="text-lg font-semibold text-gray-800">Carlos Escobar</p>
-                    <p class="mb-4 text-sm text-gray-600">About: Software Developer</p>
-                    <p class="text-sm text-gray-600"><i class="fas fa-map-marker-alt"></i> Dirección: Centro de
-                        Innovación</p>
-                    <p class="text-sm text-gray-600"><i class="fas fa-phone-alt"></i> Phone #: + 800 - 12 12 23 52</p>
-                    <div class="flex gap-2 mt-4">
-                        <button
-                            class="flex items-center gap-1 px-4 py-2 text-white bg-green-500 rounded-lg hover:bg-green-400"
-                            onclick="chatWith('Carlos Escobar')">
-                            <i class="fas fa-comments"></i>
-                        </button>
-                        <button
-                            class="flex items-center gap-1 px-4 py-2 text-white bg-blue-900 rounded-lg hover:bg-blue-800"
-                            onclick="viewProfile('Carlos Escobar')">
-                            <i class="fas fa-user"></i> View Profile
-                        </button>
-                    </div>
-                </div>
-                
+
             </div>
-            <div class="flex justify-center mt-8">
-                <button
-                    class="px-4 py-2 mx-2 transition-colors duration-200 bg-white border border-gray-300 rounded-lg cursor-pointer hover:bg-blue-800 hover:text-white active:bg-blue-900 active:border-blue-800">1</button>
-            </div>
+
+
+
         </div>
 
         <!-- Chatbot -->

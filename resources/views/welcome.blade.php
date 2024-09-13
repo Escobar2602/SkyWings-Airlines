@@ -132,6 +132,8 @@
                         </div>
                     </div>
                 </div>
+
+
                 <!-- Slider controls -->
                 <button type="button"
                     class="absolute top-0 z-30 flex items-center justify-center h-full px-2 cursor-pointer start-0 group focus:outline-none"
@@ -168,7 +170,7 @@
 
         <!-- Búsqueda de vuelos -->
         <section class="py-16 bg-white">
-            <div class="container px-6 mx-auto">
+            <div class="container px-6 mx-auto ">
                 <h2 class="mb-8 text-3xl font-bold text-center text-gray-800">Encuentra tu próximo vuelo</h2>
                 <form class="max-w-4xl p-6 mx-auto bg-gray-100 rounded-lg shadow-md">
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-4">
@@ -247,23 +249,53 @@
         </section>
 
         <!-- Ofertas especiales -->
-        <section id="ofertas" class="py-16 bg-white">
+        <section id="ofertas" class="py-16 bg-gray-100">
             <div class="container px-6 mx-auto">
-                <h2 class="mb-8 text-3xl font-bold text-center text-gray-800">Ofertas especiales</h2>
-                <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-                    <div class="p-6 bg-blue-100 rounded-lg shadow-md hover-lift">
-                        <h3 class="mb-2 text-xl font-bold">Vuelos de último minuto</h3>
-                        <p class="mb-4 text-gray-700">¡Hasta 40% de descuento en vuelos seleccionados!</p>
-                        <a href="#" class="text-blue-600 hover:underline">Ver ofertas</a>
+                <h2 class="mb-8 text-4xl font-bold text-center text-gray-800">Ofertas especiales en reservas de vuelos</h2>
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Oferta 1 -->
+                    <div class="overflow-hidden transition-shadow duration-300 transform bg-white border border-gray-300 rounded-lg shadow-xl group hover:scale-105">
+                        <div class="relative p-6">
+                            <div class="absolute top-0 left-0 transform -translate-x-6 -translate-y-6">
+                                <span class="px-3 py-1 text-sm font-semibold text-white bg-blue-500 rounded-full">¡Ofertas limitadas!</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800">Vuelos de último minuto</h3>
+                            <p class="mt-2 text-gray-600">¡Hasta 40% de descuento en vuelos seleccionados!</p>
+                            <p class="mt-4 text-3xl font-bold text-gray-800">Desde $199</p>
+                            <a href="#" class="inline-block mt-4 font-semibold text-blue-500 hover:underline">Ver ofertas</a>
+                        </div>
                     </div>
-                    <div class="p-6 bg-green-100 rounded-lg shadow-md hover-lift">
-                        <h3 class="mb-2 text-xl font-bold">Paquetes vacacionales</h3>
-                        <p class="mb-4 text-gray-700">Vuelo + Hotel con un 25% de descuento</p>
-                        <a href="#" class="text-blue-600 hover:underline">Ver paquetes</a>
+
+                    <!-- Oferta 2 -->
+                    <div class="overflow-hidden transition-shadow duration-300 transform bg-white border border-gray-300 rounded-lg shadow-xl group hover:scale-105">
+                        <div class="relative p-6">
+                            <div class="absolute top-0 left-0 transform -translate-x-6 -translate-y-6">
+                                <span class="px-3 py-1 text-sm font-semibold text-white bg-green-500 rounded-full">Aprovecha ahora</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800">Paquetes vacacionales</h3>
+                            <p class="mt-2 text-gray-600">Vuelo + Hotel con un 25% de descuento</p>
+                            <p class="mt-4 text-3xl font-bold text-gray-800">Desde $299</p>
+                            <a href="#" class="inline-block mt-4 font-semibold text-green-500 hover:underline">Ver paquetes</a>
+                        </div>
+                    </div>
+
+                    <!-- Nueva Oferta 3 -->
+                    <div class="overflow-hidden transition-shadow duration-300 transform bg-white border border-gray-300 rounded-lg shadow-xl group hover:scale-105">
+                        <div class="relative p-6">
+                            <div class="absolute top-0 left-0 transform -translate-x-6 -translate-y-6">
+                                <span class="px-3 py-1 text-sm font-semibold text-white bg-red-500 rounded-full">Descuento especial</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800">Vuelos familiares</h3>
+                            <p class="mt-2 text-gray-600">Descuentos especiales para grupos</p>
+                            <p class="mt-4 text-3xl font-bold text-gray-800">Desde $399</p>
+                            <a href="#" class="inline-block mt-4 font-semibold text-red-500 hover:underline">Explora más</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
+
 
         <!-- Por qué elegirnos -->
         <section id="sobre-nosotros" class="py-16 bg-gray-100">
@@ -290,28 +322,99 @@
         </section>
 
         <!-- Testimonios -->
-        <section class="py-16 bg-white">
+        <section class="py-16 bg-gray-50">
             <div class="container px-6 mx-auto">
-                <h2 class="mb-8 text-3xl font-bold text-center text-gray-800">Lo que dicen nuestros pasajeros</h2>
-                <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
-                        <p class="mb-4 text-gray-600">"El mejor servicio que he experimentado en una aerolínea.
-                            ¡Definitivamente volaré con Anemis de nuevo!"</p>
-                        <p class="font-semibold">- María G.</p>
-                    </div>
-                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
-                        <p class="mb-4 text-gray-600">"Puntualidad impecable y personal amable. Mi viaje fue muy cómodo
-                            y placentero."</p>
-                        <p class="font-semibold">- Carlos R.</p>
-                    </div>
-                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
-                        <p class="mb-4 text-gray-600">"Las ofertas de Anemis son imbatibles. He podido viajar más
-                            gracias a sus precios competitivos."</p>
-                        <p class="font-semibold">- Ana L.</p>
-                    </div>
+              <h2 class="mb-8 text-3xl font-bold text-center text-gray-800">
+                Lo que dicen nuestros pasajeros
+              </h2>
+              <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+
+                <!-- Testimonio 1 -->
+                <div class="flex flex-col gap-4 p-6 transition-transform duration-300 transform bg-white rounded-lg shadow-lg hover:scale-105">
+                  <div class="flex items-center justify-between">
+                    <p class="text-lg font-semibold text-gray-900">María G.</p>
+                    <p class="text-sm text-gray-400">Junio 1, 2023</p>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-800">Excelente Servicio</h3>
+                  <div class="flex gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"/>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"/>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"/>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"/>
+                      </svg>
+                    <!-- Repite el SVG para cada estrella que desees mostrar -->
+                  </div>
+                  <p class="mt-4 text-gray-600">"El mejor servicio que he experimentado en una aerolínea. ¡Definitivamente volaré con Anemis de nuevo!"</p>
                 </div>
+
+                <!-- Testimonio 2 -->
+                <div class="flex flex-col gap-4 p-6 transition-transform duration-300 transform bg-white rounded-lg shadow-lg hover:scale-105">
+                  <div class="flex items-center justify-between">
+                    <p class="text-lg font-semibold text-gray-900">Carlos R.</p>
+                    <p class="text-sm text-gray-400">Abril 23, 2023</p>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-800">Viaje Confortable</h3>
+                  <div class="flex gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"/>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"/>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"/>
+                      </svg>
+                    <!-- Añadir más estrellas si es necesario -->
+                  </div>
+                  <p class="mt-4 text-gray-600">"Puntualidad impecable y personal amable. Mi viaje fue muy cómodo y placentero."</p>
+                </div>
+
+                <!-- Testimonio 3 -->
+                <div class="flex flex-col gap-4 p-6 transition-transform duration-300 transform bg-white rounded-lg shadow-lg hover:scale-105">
+                  <div class="flex items-center justify-between">
+                    <p class="text-lg font-semibold text-gray-900">Ana L.</p>
+                    <p class="text-sm text-gray-400">Mayo 15, 2023</p>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-800">Ofertas Imbatibles</h3>
+                  <div class="flex gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"/>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"/>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"/>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.916 1.603-.916 1.902 0l1.286 3.953a1.5 1.5 0 001.421 1.033h4.171c.949 0 1.341 1.154.577 1.715l-3.38 2.458a1.5 1.5 0 00-.54 1.659l1.286 3.953c.3.916-.757 1.67-1.539 1.145l-3.38-2.458a1.5 1.5 0 00-1.76 0l-3.38 2.458c-.782.525-1.838-.229-1.539-1.145l1.286-3.953a1.5 1.5 0 00-.54-1.659l-3.38-2.458c-.764-.561-.372-1.715.577-1.715h4.171a1.5 1.5 0 001.421-1.033l1.286-3.953z"/>
+                      </svg>
+
+                  </div>
+                  <p class="mt-4 text-gray-600">"Las ofertas de Anemis son imbatibles. He podido viajar más gracias a sus precios competitivos."</p>
+                </div>
+
+              </div>
             </div>
-        </section>
+          </section>
+
+
 
         <!-- CTA Section -->
         <section class="py-16 gradient-bg">
