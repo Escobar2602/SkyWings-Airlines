@@ -5,7 +5,7 @@ use App\Http\Controllers\rvuelosController;
 use App\Http\Controllers\soporteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AircraftController;
-use App\Http\Controllers\VueloController;
+use App\Http\Controllers\RutasYTarifasController;
 
 use App\Http\Controllers\TicketController;
 
@@ -52,7 +52,14 @@ Route::get('/tickets/search', [TicketController::class, 'index'])->name('tickets
 Route::get('/crearrutas', [rvuelosController::class, 'index'])->name('rutas');
 Route::get('/soporte', [soporteController::class, 'index'])->name('soporte');
 Route::get('/crearaviones', [AircraftController::class, 'index'])->name('aviones');
-Route::post('/vuelos', [VueloController::class, 'store'])->name('vuelos.store');
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/rutasytarifas', [RutasYTarifasController::class, 'index'])->name('rutasytarifas.index');
+    Route::get('/rutasytarifas/create', [RutasYTarifasController::class, 'create'])->name('rutasytarifas.create');
+    Route::post('/rutasytarifas', [RutasYTarifasController::class, 'store'])->name('rutasytarifas.store');
+});
 
 
 

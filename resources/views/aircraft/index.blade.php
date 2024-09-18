@@ -14,24 +14,24 @@
                     <!-- Formulario para agregar aeronave -->
                     <div class="p-6 mb-8 bg-white border border-gray-200 rounded-lg shadow-sm">
                         <h3 class="pb-2 mb-4 text-lg font-medium text-gray-700 border-b">Agregar Nueva Aeronave</h3>
-                        <form id="aircraftForm" action="{{ route('aircraft.store') }}" method="POST" enctype="multipart/form-data">
+                        <form id="aircraftForm" action="{{ route('aircraft.store') }}" method="POST">
                             @csrf
                             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                                 <div>
-                                    <label for="model" class="block mb-2 text-sm font-medium text-gray-700">Modelo de Aeronave</label>
-                                    <input type="text" id="model" name="model" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <label for="avion" class="block mb-2 text-sm font-medium text-gray-700">Nombre de Aeronave</label>
+                                    <input type="text" id="avion" name="avion" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" required>
                                 </div>
                                 <div>
-                                    <label for="seats" class="block mb-2 text-sm font-medium text-gray-700">Número de Asientos</label>
-                                    <input type="number" id="seats" name="seats" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <label for="capacidad" class="block mb-2 text-sm font-medium text-gray-700">Número de Asientos</label>
+                                    <input type="number" id="capacidad" name="capacidad" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" required>
                                 </div>
                                 <div>
-                                    <label for="plate" class="block mb-2 text-sm font-medium text-gray-700">Matrícula</label>
-                                    <input type="text" id="plate" name="plate" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <label for="matricula" class="block mb-2 text-sm font-medium text-gray-700">Matrícula</label>
+                                    <input type="text" id="matricula" name="matricula" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" required>
                                 </div>
                                 <div>
-                                    <label for="type" class="block mb-2 text-sm font-medium text-gray-700">Tipo de Aeronave</label>
-                                    <select id="type" name="type" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <label for="modelo" class="block mb-2 text-sm font-medium text-gray-700">Tipo de Aeronave</label>
+                                    <select id="modelo" name="modelo" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" required>
                                         <option value="">Seleccione un tipo</option>
                                         <option value="narrowBody">Fuselaje Estrecho</option>
                                         <option value="wideBody">Fuselaje Ancho</option>
@@ -39,17 +39,8 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <label for="image" class="block mb-2 text-sm font-medium text-gray-700">Imagen de la Aeronave</label>
-                                    <input type="file" id="image" name="image" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" accept="image/*">
-                                </div>
-                                <div>
-                                    <label for="vuelo_id" class="block mb-2 text-sm font-medium text-gray-700">Ruta de Vuelo</label>
-                                    <select id="vuelo_id" name="vuelo_id" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500">
-                                        <option value="">Seleccione una ruta de vuelo</option>
-                                        @foreach ($vuelos as $vuelo)
-                                            <option value="{{ $vuelo->id }}">{{ $vuelo->origen }} - {{ $vuelo->destino }}</option>
-                                        @endforeach
-                                    </select>
+                                    <label for="estado" class="block mb-2 text-sm font-medium text-gray-700">Estado</label>
+                                    <input type="text" id="estado" name="estado" class="w-full px-3 py-2 text-gray-700 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" required>
                                 </div>
                             </div>
                             <div class="mt-6">
@@ -65,36 +56,22 @@
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Modelo</th>
-                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Asientos</th>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Avion</th>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Capacidad</th>
                                     <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Matrícula</th>
-                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Tipo</th>
-                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Imagen</th>
-                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Ruta de Vuelo</th>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Modelo</th>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Estado</th>
                                     <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody id="aircraftTableBody" class="bg-white divide-y divide-gray-200">
                                 @foreach ($aircraft as $plane)
                                 <tr data-id="{{ $plane->id }}" class="transition duration-150 ease-in-out hover:bg-gray-50">
-                                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">{{ $plane->model }}</td>
-                                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">{{ $plane->seats }}</td>
-                                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">{{ $plane->plate }}</td>
-                                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">{{ $plane->type }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        @if($plane->image)
-                                            <img src="{{ asset('storage/' . $plane->image) }}" alt="{{ $plane->model }}" class="object-cover w-10 h-10 rounded-full">
-                                        @else
-                                            <span class="text-gray-400">N/A</span>
-                                        @endif
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">
-                                        @if($plane->vuelo)
-                                            {{ $plane->vuelo->origen }} - {{ $plane->vuelo->destino }}
-                                        @else
-                                            <span class="text-gray-400">N/A</span>
-                                        @endif
-                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">{{ $plane->avion }}</td>
+                                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">{{ $plane->capacidad }}</td>
+                                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">{{ $plane->matricula }}</td>
+                                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">{{ $plane->modelo }}</td>
+                                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">{{ $plane->estado }}</td>
                                     <td class="px-6 py-4 text-sm font-medium whitespace-nowrap">
                                         <button onclick="editAircraft({{ $plane->id }})" class="mr-3 text-blue-600 transition duration-150 ease-in-out hover:text-blue-900">Editar</button>
                                         <form action="{{ route('aircraft.destroy', $plane->id) }}" method="POST" class="inline">
@@ -142,16 +119,11 @@
                 row.setAttribute('data-id', aircraft.id);
                 row.classList.add('hover:bg-gray-50', 'transition', 'duration-150', 'ease-in-out');
                 row.innerHTML = `
-                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.model}</td>
-                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.seats}</td>
-                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.plate}</td>
-                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.type}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        ${aircraft.image ? `<img src="/storage/${aircraft.image}" alt="${aircraft.model}" class="object-cover w-10 h-10 rounded-full">` : '<span class="text-gray-400">N/A</span>'}
-                    </td>
-                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">
-                        ${aircraft.vuelo ? `${aircraft.vuelo.origen} - ${aircraft.vuelo.destino}` : '<span class="text-gray-400">N/A</span>'}
-                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.avion}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.capacidad}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.matricula}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.modelo}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.estado}</td>
                     <td class="px-6 py-4 text-sm font-medium whitespace-nowrap">
                         <button onclick="editAircraft(${aircraft.id})" class="mr-3 text-blue-600 transition duration-150 ease-in-out hover:text-blue-900">Editar</button>
                         <form action="/aircraft/${aircraft.id}" method="POST" class="inline">

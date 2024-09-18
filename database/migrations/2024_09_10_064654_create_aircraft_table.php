@@ -10,11 +10,11 @@ return new class extends Migration
     {
         Schema::create('aircraft', function (Blueprint $table) {
             $table->id();
-            $table->string('model');
-            $table->integer('seats');
-            $table->string('plate')->unique();
-            $table->enum('type', ['narrowBody', 'wideBody', 'regional']);
-            $table->string('image')->nullable();
+            $table->string('avion');
+            $table->integer('capacidad');
+            $table->string('matricula')->unique();
+            $table->enum('modelo', ['narrowBody', 'wideBody', 'regional']);
+            $table->string('estado');
             $table->timestamps();
         });
     }
