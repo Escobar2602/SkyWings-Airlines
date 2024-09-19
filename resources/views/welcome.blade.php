@@ -72,7 +72,7 @@
     <main class="container px-6 py-8 mx-auto">
         <section class="mb-12 animate-fadeIn" style="animation-delay: 0.4s;">
             <div class="overflow-hidden bg-white rounded-lg shadow-lg hover-shadow">
-                <img src="/api/placeholder/1200/400" alt="Banner promocional" class="object-cover w-full h-64 transition duration-500 transform hover:scale-105">
+                <img src="{{asset('images/banner3.JPG')}}" alt="Banner promocional" class="object-cover w-full h-64 transition duration-500 transform hover:scale-105">
             </div>
         </section>
 
@@ -110,7 +110,7 @@
             <h2 class="mb-6 text-2xl font-bold text-gray-800">Ofertas especiales</h2>
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
                 <div class="overflow-hidden bg-white rounded-lg shadow-lg hover-shadow animate-scaleIn">
-                    <img src="/api/placeholder/300/200" alt="Destino 1" class="object-cover w-full h-48 transition duration-500 transform hover:scale-105">
+                    <img src="{{asset('images/newyork (1).jpg')}}" alt="Destino 1" class="object-cover w-full h-48 transition duration-500 transform hover:scale-105">
                     <div class="p-4">
                         <h3 class="mb-2 text-lg font-bold">Nueva York</h3>
                         <p class="mb-2 text-gray-600">Vuelo directo + 3 noches de hotel</p>
@@ -121,7 +121,7 @@
                     </div>
                 </div>
                 <div class="overflow-hidden bg-white rounded-lg shadow-lg hover-shadow animate-scaleIn" style="animation-delay: 0.2s;">
-                    <img src="/api/placeholder/300/200" alt="Destino 2" class="object-cover w-full h-48 transition duration-500 transform hover:scale-105">
+                    <img src="{{asset('logo/Paris-1024x768.jpg')}}" alt="Destino 2" class="object-cover w-full h-48 transition duration-500 transform hover:scale-105">
                     <div class="p-4">
                         <h3 class="mb-2 text-lg font-bold">París</h3>
                         <p class="mb-2 text-gray-600">Vuelo + 4 noches + tour por la ciudad</p>
@@ -132,7 +132,7 @@
                     </div>
                 </div>
                 <div class="overflow-hidden bg-white rounded-lg shadow-lg hover-shadow animate-scaleIn" style="animation-delay: 0.4s;">
-                    <img src="/api/placeholder/300/200" alt="Destino 3" class="object-cover w-full h-48 transition duration-500 transform hover:scale-105">
+                    <img src="{{asset('images/tokio.jpg')}}" alt="Destino 3" class="object-cover w-full h-48 transition duration-500 transform hover:scale-105">
                     <div class="p-4">
                         <h3 class="mb-2 text-lg font-bold">Tokio</h3>
                         <p class="mb-2 text-gray-600">Vuelo + 5 noches + excursión al Monte Fuji</p>
@@ -143,7 +143,7 @@
                     </div>
                 </div>
                 <div class="overflow-hidden bg-white rounded-lg shadow-lg hover-shadow animate-scaleIn" style="animation-delay: 0.6s;">
-                    <img src="/api/placeholder/300/200" alt="Destino 4" class="object-cover w-full h-48 transition duration-500 transform hover:scale-105">
+                    <img src="{{asset('images/cancun.jpeg')}}" alt="Destino 4" class="object-cover w-full h-48 transition duration-500 transform hover:scale-105">
                     <div class="p-4">
                         <h3 class="mb-2 text-lg font-bold">Cancún</h3>
                         <p class="mb-2 text-gray-600">Todo incluido: vuelo + 7 noches de resort</p>
@@ -160,32 +160,32 @@
             <h2 class="mb-6 text-2xl font-bold text-gray-800">Destinos populares</h2>
             <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
                 <div class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
-                    <img src="/api/placeholder/150/100" alt="Destino popular 1" class="object-cover w-full h-32 mb-2 transition duration-500 transform rounded hover:scale-105">
+                    <img src="{{asset('images/londres.png')}}" alt="Destino popular 1" class="object-cover w-full h-32 mb-2 transition duration-500 transform rounded hover:scale-105">
                     <p class="font-bold">Londres</p>
                     <p class="text-green-600">Desde $399</p>
                 </div>
                 <div class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
-                    <img src="/api/placeholder/150/100" alt="Destino popular 2" class="object-cover w-full h-32 mb-2 transition duration-500 transform rounded hover:scale-105">
+                    <img src="{{asset('images/roma.jpeg')}}" alt="Destino popular 2" class="object-cover w-full h-32 mb-2 transition duration-500 transform rounded hover:scale-105">
                     <p class="font-bold">Roma</p>
                     <p class="text-green-600">Desde $449</p>
                 </div>
                 <div class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
-                    <img src="/api/placeholder/150/100" alt="Destino popular 3" class="object-cover w-full h-32 mb-2 transition duration-500 transform rounded hover:scale-105">
+                    <img src="{{asset('images/sidney.jpeg')}}" alt="Destino popular 3" class="object-cover w-full h-32 mb-2 transition duration-500 transform rounded hover:scale-105">
                     <p class="font-bold">Sídney</p>
                     <p class="text-green-600">Desde $899</p>
                 </div>
                 <div class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
-                    <img src="/api/placeholder/150/100" alt="Destino popular 4" class="object-cover w-full h-32 mb-2 transition duration-500 transform rounded hover:scale-105">
+                    <img src="{{asset('images/dubay.jpeg')}}" alt="Destino popular 4" class="object-cover w-full h-32 mb-2 transition duration-500 transform rounded hover:scale-105">
                     <p class="font-bold">Dubái</p>
                     <p class="text-green-600">Desde $599</p>
                 </div>
                 <div class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
-                    <img src="/api/placeholder/150/100" alt="Destino popular 5" class="object-cover w-full h-32 mb-2 transition duration-500 transform rounded hover:scale-105">
+                    <img src="{{asset('images/bankgok.webp')}}" alt="Destino popular 5" class="object-cover w-full h-32 mb-2 transition duration-500 transform rounded hover:scale-105">
                     <p class="font-bold">Bangkok</p>
                     <p class="text-green-600">Desde $549</p>
                 </div>
                 <div class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
-                    <img src="/api/placeholder/150/100" alt="Destino popular 6" class="object-cover w-full h-32 mb-2 transition duration-500 transform rounded hover:scale-105">
+                    <img src="{{asset('images/riodejaneiro.jpeg')}}" alt="Destino popular 6" class="object-cover w-full h-32 mb-2 transition duration-500 transform rounded hover:scale-105">
                     <p class="font-bold">Río de Janeiro</p>
                     <p class="text-green-600">Desde $649</p>
                 </div>
