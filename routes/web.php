@@ -6,9 +6,9 @@ use App\Http\Controllers\soporteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AircraftController;
 use App\Http\Controllers\RutasYTarifasController;
-
+use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\TicketController;
-
+use App\Http\Controllers\AeropuertoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,8 +62,17 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-
 Route::resource('aircraft', AircraftController::class);
+
+//rutas de personas
+Route::get('/personal', [PersonalController::class, 'index'])->name('personal.index');
+Route::get('/personal/create', [PersonalController::class, 'create'])->name('personal.create');
+Route::post('/personal', [PersonalController::class, 'store'])->name('personal.store');
+
+//rutas para aerepuertos
+Route::get('/aeropuertos', [AeropuertoController::class, 'index'])->name('aeropuertos.index');
+Route::get('/aeropuertos/create', [AeropuertoController::class, 'create'])->name('aeropuertos.create');
+Route::post('/aeropuertos', [AeropuertoController::class, 'store'])->name('aeropuertos.store');
 
 // Rutas de autenticación generadas automáticamente
 require __DIR__.'/auth.php';
