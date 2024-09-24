@@ -14,7 +14,7 @@
                     <!-- Formulario para agregar aeronave -->
                     <div class="p-6 mb-8 bg-white border border-gray-200 rounded-lg shadow-sm">
                         <h3 class="pb-2 mb-4 text-lg font-medium text-gray-700 border-b">Agregar Nueva Aeronave</h3>
-                        <form id="aircraftForm" action="{{ route('aircraft.store') }}" method="POST">
+                        <form id="avionForm" action="{{ route('avion.store') }}" method="POST">
                             @csrf
                             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                                 <div>
@@ -64,8 +64,8 @@
                                     <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody id="aircraftTableBody" class="bg-white divide-y divide-gray-200">
-                                @foreach ($aircraft as $plane)
+                            <tbody id="avionTableBody" class="bg-white divide-y divide-gray-200">
+                                @foreach ($aviones as $plane)
                                 <tr data-id="{{ $plane->id }}" class="transition duration-150 ease-in-out hover:bg-gray-50">
                                     <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">{{ $plane->avion }}</td>
                                     <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">{{ $plane->capacidad }}</td>
@@ -73,8 +73,8 @@
                                     <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">{{ $plane->modelo }}</td>
                                     <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">{{ $plane->estado }}</td>
                                     <td class="px-6 py-4 text-sm font-medium whitespace-nowrap">
-                                        <button onclick="editAircraft({{ $plane->id }})" class="mr-3 text-blue-600 transition duration-150 ease-in-out hover:text-blue-900">Editar</button>
-                                        <form action="{{ route('aircraft.destroy', $plane->id) }}" method="POST" class="inline">
+                                        <button onclick="editAvion({{ $plane->id }})" class="mr-3 text-blue-600 transition duration-150 ease-in-out hover:text-blue-900">Editar</button>
+                                        <form action="{{ route('avion.destroy', $plane->id) }}" method="POST" class="inline">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="text-red-600 transition duration-150 ease-in-out hover:text-red-900" onclick="return confirm('¿Está seguro de que desea eliminar esta aeronave?')">Eliminar</button>
@@ -93,8 +93,8 @@
     @push('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('aircraftForm');
-            const tableBody = document.getElementById('aircraftTableBody');
+            const form = document.getElementById('avionForm');
+            const tableBody = document.getElementById('avionTableBody');
 
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -108,25 +108,25 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    addAircraftToTable(data);
+                    addAvionToTable(data);
                     form.reset();
                 })
                 .catch(error => console.error('Error:', error));
             });
 
-            function addAircraftToTable(aircraft) {
+            function addAvionToTable(avion) {
                 const row = document.createElement('tr');
-                row.setAttribute('data-id', aircraft.id);
+                row.setAttribute('data-id', avion.id);
                 row.classList.add('hover:bg-gray-50', 'transition', 'duration-150', 'ease-in-out');
                 row.innerHTML = `
-                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.avion}</td>
-                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.capacidad}</td>
-                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.matricula}</td>
-                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.modelo}</td>
-                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${aircraft.estado}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${avion.avion}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${avion.capacidad}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${avion.matricula}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${avion.modelo}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700 whitespace-nowrap">${avion.estado}</td>
                     <td class="px-6 py-4 text-sm font-medium whitespace-nowrap">
-                        <button onclick="editAircraft(${aircraft.id})" class="mr-3 text-blue-600 transition duration-150 ease-in-out hover:text-blue-900">Editar</button>
-                        <form action="/aircraft/${aircraft.id}" method="POST" class="inline">
+                        <button onclick="editAvion(${avion.id})" class="mr-3 text-blue-600 transition duration-150 ease-in-out hover:text-blue-900">Editar</button>
+                        <form action="/avion/${avion.id}" method="POST" class="inline">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="text-red-600 transition duration-150 ease-in-out hover:text-red-900" onclick="return confirm('¿Está seguro de que desea eliminar esta aeronave?')">Eliminar</button>
@@ -136,7 +136,7 @@
                 tableBody.appendChild(row);
             }
 
-            window.editAircraft = function(id) {
+            window.editAvion = function(id) {
                 // Implementar funcionalidad de edición
                 console.log('Editar aeronave con ID:', id);
             }
