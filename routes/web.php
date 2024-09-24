@@ -63,6 +63,11 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
+//rutas del welcome
+Route::get('/destinos', function () { return view('destino');});
+Route::get('/reseervas', function () { return view('reseervas');});
+Route::get('/Checkin', function () { return view('Checkin');});
+Route::get('/ayudawelcome', function () { return view('ayudawelcome');});
 
 
 //rutas de personas

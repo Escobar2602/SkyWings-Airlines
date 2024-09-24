@@ -58,13 +58,12 @@
     <nav class="py-2 text-white bg-blue-800 animate-fadeIn" style="animation-delay: 0.2s;">
         <div class="container flex justify-between px-6 mx-auto">
             <div class="flex space-x-4">
-                <a href="#" class="transition duration-300 hover:text-blue-300">Reservas</a>
-                <a href="#" class="transition duration-300 hover:text-blue-300">Destinos</a>
-                <a href="#" class="transition duration-300 hover:text-blue-300">Check-in</a>
-                <a href="#" class="transition duration-300 hover:text-blue-300">Estado del vuelo</a>
+                <a href="{{ url('/reseervas') }}" class="transition duration-300 hover:text-blue-300">Reservas</a>
+                <a href="{{ url('/destinos') }}" class="transition duration-300 hover:text-blue-300">Destinos</a>
+                <a href="{{ url('/Checkin') }}" class="transition duration-300 hover:text-blue-300">Check-in</a>
             </div>
             <div>
-                <a href="#" class="transition duration-300 hover:text-blue-300">Ayuda</a>
+                <a href="{{ url('/ayudawelcome') }}" class="transition duration-300 hover:text-blue-300">Ayuda</a>
             </div>
         </div>
     </nav>
@@ -78,27 +77,27 @@
         <section class="mb-12 animate-fadeIn" style="animation-delay: 0.6s;">
             <h2 class="mb-6 text-2xl font-bold text-gray-800">Nuestros servicios</h2>
             <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
-                <a href="#" class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
+                <a href="{{ route('login') }}" class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
                     <i class="mb-2 text-4xl text-blue-500 fas fa-plane-departure"></i>
                     <p>Reservas</p>
                 </a>
-                <a href="#" class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
+                <a href="{{ route('login') }}" class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
                     <i class="mb-2 text-4xl text-green-500 fas fa-suitcase-rolling"></i>
                     <p>Equipaje</p>
                 </a>
-                <a href="#" class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
+                <a href="{{ route('login') }}" class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
                     <i class="mb-2 text-4xl text-red-500 fas fa-utensils"></i>
                     <p>Comidas</p>
                 </a>
-                <a href="#" class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
+                <a href="{{ route('login') }}" class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
                     <i class="mb-2 text-4xl text-purple-500 fas fa-bed"></i>
                     <p>Hoteles</p>
                 </a>
-                <a href="#" class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
+                <a href="{{ route('login') }}" class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
                     <i class="mb-2 text-4xl text-yellow-500 fas fa-car"></i>
                     <p>Alquiler de coches</p>
                 </a>
-                <a href="#" class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
+                <a href="{{ route('login') }}" class="p-4 text-center transition duration-300 bg-white rounded-lg shadow hover-grow hover-shadow">
                     <i class="mb-2 text-4xl text-indigo-500 fas fa-headset"></i>
                     <p>Atención al cliente</p>
                 </a>

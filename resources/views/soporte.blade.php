@@ -1,10 +1,15 @@
 <x-app-layout>
+<x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Soporte') }}
+        </h2>
+    </x-slot>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <body class="font-sans bg-white">
         <div class="w-4/5 p-5 mx-auto my-5 bg-white rounded-lg shadow-lg">
             <header class="mb-8 text-center">
-                <h1 class="text-2xl text-blue-800">Soporte</h1>
+               
                 <p class="mt-2 text-lg text-gray-800">
                     En caso de <strong class="font-semibold text-blue-800">bugs, orientación o capacitación</strong>, por
                     favor contactar con el equipo de desarrollo
@@ -32,18 +37,18 @@
                    <BR></BR> <div class="z-40 flex gap-3 mt-5">
                         <button
                             class="flex items-center gap-2 px-5 py-3 text-white transition duration-200 bg-green-500 rounded-lg hover:bg-green-400"
-                            onclick="chatWith('Javier Teheran M')">
+                            onclick="chatWith('Admin')">
                             <i class="fas fa-comments"></i> Chat
                         </button>
                         <button
                             class="flex items-center gap-2 px-5 py-3 text-white transition duration-200 bg-blue-900 rounded-lg hover:bg-blue-800"
-                            onclick="viewProfile('Javier Teheran M')">
+                            onclick="viewProfile('Admin')">
                             <i class="fas fa-user"></i> View Profile
                         </button>
                     </div>
                 </div>
 
-                <!-- Repite el mismo código para otros perfiles como Jose Camargo y Carlos Escobar -->
+                
                 <div class="flex flex-wrap justify-center gap-8">
                     <div
                         class="product-card w-[350px] rounded-md shadow-xl overflow-hidden relative cursor-pointer py-10 px-8 bg-white flex flex-col items-center justify-center gap-4 transition-all duration-300 group hover:scale-105">
@@ -64,14 +69,14 @@
                         <p class="text-base text-gray-600"><i class="fas fa-map-marker-alt"></i> Dirección: Centro de Innovación</p>
                         <p class="text-base text-gray-600"><i class="fas fa-phone-alt"></i> Phone #: + 800 - 12 12 23 52</p>
                        <BR></BR> <div class="z-40 flex gap-3 mt-5">
-                            <button
+                            <button 
                                 class="flex items-center gap-2 px-5 py-3 text-white transition duration-200 bg-green-500 rounded-lg hover:bg-green-400"
-                                onclick="chatWith('Javier Teheran M')">
+                                onclick="chatWith('Admin')">
                                 <i class="fas fa-comments"></i> Chat
                             </button>
                             <button
                                 class="flex items-center gap-2 px-5 py-3 text-white transition duration-200 bg-blue-900 rounded-lg hover:bg-blue-800"
-                                onclick="viewProfile('Javier Teheran M')">
+                                onclick="viewProfile('Admin')">
                                 <i class="fas fa-user"></i> View Profile
                             </button>
                         </div>
@@ -158,11 +163,11 @@
 </style>
 <script>
     function chatWith(name) {
-        alert(`Iniciando chat con ${name}`);
+        alert(`Iniciando chat con Admin`);
     }
 
     function viewProfile(name) {
-        alert(`Mostrando perfil de ${name}`);
+        alert(`Mostrando perfil de Admin`);
     }
     // chatbot
     document.getElementById('chatbot-btn').addEventListener('click', function() {

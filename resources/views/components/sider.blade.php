@@ -115,7 +115,7 @@
                 </a>
             </nav>
             <div class="mt-auto">
-                <a href="#" class="sidebar-link flex items-center justify-center w-12 h-12 rounded-lg relative group" data-title="Settings">
+                <a href="{{ route('soporte') }}" class="sidebar-link flex items-center justify-center w-12 h-12 rounded-lg relative group" data-title="Settings">
                     <i class="fas fa-cog text-xl"></i>
                     <span class="ml-4 text-sm font-medium hidden">Settings</span>
                 </a>
