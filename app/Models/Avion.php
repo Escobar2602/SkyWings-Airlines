@@ -9,6 +9,9 @@ class Avion extends Model
 {
     use HasFactory;
 
+    // Especifica el nombre correcto de la tabla
+    protected $table = 'aviones';
+
     protected $fillable = ['avion', 'capacidad', 'matricula', 'modelo', 'estado'];
 
     protected $casts = [

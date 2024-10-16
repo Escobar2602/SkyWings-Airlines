@@ -14,7 +14,7 @@
                     <!-- Formulario para agregar aeronave -->
                     <div class="p-6 mb-8 bg-white border border-gray-200 rounded-lg shadow-sm">
                         <h3 class="pb-2 mb-4 text-lg font-medium text-gray-700 border-b">Agregar Nueva Aeronave</h3>
-                        <form id="avionForm" action="{{ route('avion.store') }}" method="POST">
+                        <form id="avionForm" action="{{ route('aircraft.store') }}" method="POST">
                             @csrf
                             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                                 <div>
