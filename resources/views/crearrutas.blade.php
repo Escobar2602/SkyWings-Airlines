@@ -9,159 +9,83 @@
 
 </head>
 <x-app-layout>
+<x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Crear Ruta y Tarifa') }}
+        </h2>
+    </x-slot>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
 
-</html>
-    <body class="bg-gray-100">
-        <div class="flex flex-col justify-center items-center">
 
-
-            <!-- Form section -->
-            <form action="{{ route('vuelos.store') }}" method="POST"
-                class="relative mt-64 flex flex-col justify-center items-center">
-                @csrf
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h2 class="text-lg font-semibold text-gray-700 mb-3 text-center">Crea ruta Vuelo</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-6 gap-3">
+                <form action="{{ route('rutasytarifas.store') }}" method="POST">
+                    @csrf
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label for="origin" class="block text-sm font-medium text-gray-700">Origen</label>
-                            <select id="origin" name="origen"
-                                class="mt-1 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
-                                <!-- Add options here -->
+                            <label for="ciudad_origen" class="block text-sm font-medium text-gray-700">Ciudad Origen</label>
+                            <select id="ciudad_origen" name="ciudad_origen" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                 <option value="">Seleccione ciudad de origen</option>
-                                <option value="ciudad1" id="origen-villazon">Villazón</option>
-                                <option value="ciudad2" id="origen-caranavi">Caranavi</option>
-                                <option value="ciudad3" id="origen-trinidad">Trinidad</option>
-                                <option value="ciudad4" id="origen-santa-cruz">Santa Cruz</option>
-                                <option value="ciudad5" id="origen-la-paz">La Paz</option>
-                                <option value="ciudad6" id="origen-cocachamba">Cochabamba</option>
-                                <option value="ciudad7" id="origen-venezuela">Venezuela</option>
-                                <option value="ciudad8" id="origen-colombia">Colombia</option>
-                                <option value="ciudad9" id="origen-miami">Miami</option>
-                                <option value="ciudad10" id="origen-peru">Perú</option>
-                                <option value="ciudad11" id="origen-brazil">Brasil</option>
-                                <option value="ciudad12" id="origen-paraguay">Paraguay</option>
+                                @foreach(['Villazón', 'Caranavi', 'Trinidad', 'Santa Cruz', 'La Paz', 'Cochabamba', 'Venezuela', 'Colombia', 'Miami', 'Perú', 'Brasil', 'Paraguay'] as $ciudad)
+                                    <option value="{{ $ciudad }}">{{ $ciudad }}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div>
-                            <label for="destination" class="block text-sm font-medium text-gray-700">Destino</label>
-                            <select id="destination" name="destino"
-                                class="mt-1 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
+                            <label for="ciudad_destino" class="block text-sm font-medium text-gray-700">Ciudad Destino</label>
+                            <select id="ciudad_destino" name="ciudad_destino" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                 <option value="">Seleccione ciudad de destino</option>
-                                <option value="ciudad1" id="destino-villazon">Villazón</option>
-                                <option value="ciudad2" id="destino-caranavi">Caranavi</option>
-                                <option value="ciudad3" id="destino-trinidad">Trinidad</option>
-                                <option value="ciudad4" id="destino-santa-cruz">Santa Cruz</option>
-                                <option value="ciudad5" id="destino-la-paz">La Paz</option>
-                                <option value="ciudad6" id="destino-cocachamba">Cochabamba</option>
-                                <option value="ciudad7" id="destino-venezuela">Venezuela</option>
-                                <option value="ciudad8" id="destino-colombia">Colombia</option>
-                                <option value="ciudad9" id="destino-miami">Miami</option>
-                                <option value="ciudad10" id="destino-peru">Perú</option>
-                                <option value="ciudad11" id="destino-brazil">Brasil</option>
-                                <option value="ciudad12" id="destino-paraguay">Paraguay</option>
+                                @foreach(['Villazón', 'Caranavi', 'Trinidad', 'Santa Cruz', 'La Paz', 'Cochabamba', 'Venezuela', 'Colombia', 'Miami', 'Perú', 'Brasil', 'Paraguay'] as $ciudad)
+                                    <option value="{{ $ciudad }}">{{ $ciudad }}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div>
-                            <label for="arrival_time" class="block text-sm font-medium text-gray-700">Hora de
-                                Salida</label>
-                            <input type="time" id="hora_salida" name="hora_salida"
-                                class="mt-1 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
+                            <label for="precio" class="block text-sm font-medium text-gray-700">Precio</label>
+                            <input type="number" step="0.01" id="precio" name="precio" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Ej. 100.00">
                         </div>
 
                         <div>
-                            <label for="arrival_time" class="block text-sm font-medium text-gray-700">Hora de
-                                llegada</label>
-                            <input type="time" id="hora_llegada" name="hora_llegada"
-                                class="mt-1 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
-                        </div>
-
-                        <div>
-                            <label for="date" class="block text-sm font-medium text-gray-700">Dia de salida</label>
-                            <input type="date" id="dia_salida" name="dia_salida"
-                                class="mt-1 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
-
-                        </div>
-
-
-                        <div>
-                            <label for="value" class="block text-sm font-medium text-gray-700">Valor</label>
-                            <input type="number" id="valor" name="valor" placeholder="Valor del vuelo"
-                                class="mt-1 block w-full p-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
+                            <label for="duracion" class="block text-sm font-medium text-gray-700">Duración (en minutos)</label>
+                            <input type="number" id="duracion" name="duracion" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Ej. 120">
                         </div>
                     </div>
 
-                    <div class="flex justify-center mt-3">
-                        <button type="button" id="crearRutaVueloBtn"
-                            class="px-3 py-1.5 bg-purple-700 text-white rounded-lg hover:bg-purple-800 focus:outline-none">
-                            Crear ruta de vuelo
+                    <div class="mt-6">
+                        <button type="submit" class="inline-flex items-center px-4 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:border-indigo-900 focus:ring focus:ring-indigo-300 disabled:opacity-25 transition">
+                            Crear Ruta y Tarifa
                         </button>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
+    </div>
 
+    <script>
+        const origenSelect = document.getElementById('ciudad_origen');
+        const destinoSelect = document.getElementById('ciudad_destino');
 
-
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
-          <script>
-                document.getElementById('crearRutaVueloBtn').addEventListener('click', function() {
-                    // Obtener los valores de los campos
-                    const origin = document.getElementById('origin').value;
-                    const destination = document.getElementById('destination').value;
-                    const hora_salida = document.getElementById('hora_salida').value;
-                    const hora_llegada = document.getElementById('hora_llegada').value;
-                    const dia_salida = document.getElementById('dia_salida').value;
-                    const valor = document.getElementById('valor').value;
-
-                    // Validar si algún campo está vacío
-                    if (!origin || !destination || !hora_salida || !hora_llegada || !dia_salida || !valor) {
-                        Swal.fire({
-                            title: "Advertencia",
-                            text: "Por favor complete todos los campos antes de enviar.",
-                            icon: "warning"
-                        });
-                    } else {
-                        Swal.fire({
-                            title: "Buen trabajo",
-                            text: "Creó su ruta de vuelo con éxito",
-                            icon: "success"
-                        }).then(() => {
-                            // Después de cerrar la alerta, se envía el formulario si todos los campos están completos
-                            document.getElementById('rutaVueloForm').submit();
-                        });
-                    }
-                });
-
-
-
-
-            const originSelect = document.getElementById('origin');
-            const destinationSelect = document.getElementById('destination');
-
-            function disableSelectedOption(selectedValue, selectElement) {
-                const options = selectElement.options;
-                for (let i = 0; i < options.length; i++) {
-                    if (options[i].value === selectedValue) {
-                        options[i].disabled = true;
-                    } else {
-                        options[i].disabled = false;
-                    }
+        function disableSelectedOption(selectedValue, selectElement) {
+            const options = selectElement.options;
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].value === selectedValue) {
+                    options[i].disabled = true;
+                } else {
+                    options[i].disabled = false;
                 }
             }
+        }
 
-            originSelect.addEventListener('change', function() {
-                const selectedOrigin = this.value;
-                disableSelectedOption(selectedOrigin, destinationSelect);
-            });
+        origenSelect.addEventListener('change', function() {
+            const selectedOrigin = this.value;
+            disableSelectedOption(selectedOrigin, destinoSelect);
+        });
 
-            destinationSelect.addEventListener('change', function() {
-                const selectedDestination = this.value;
-                disableSelectedOption(selectedDestination, originSelect);
-            });
-        </script>
-    </body>
+        destinoSelect.addEventListener('change', function() {
+            const selectedDestination = this.value;
+            disableSelectedOption(selectedDestination, origenSelect);
+        });
+    </script>
 </x-app-layout>

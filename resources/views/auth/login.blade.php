@@ -1,80 +1,315 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inicio</title>
-</head>
-<x-guest-layout>
-    <div class="flex items-center justify-center min-h-screen bg-center bg-cover relative"
-        style="background-image: url('{{ asset('images/983433.png') }}');">
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+    <title>Iniciar Sesión - SkyWings Airlines</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
 
-        <div class="relative z-10 bg-white/30 p-6 sm:p-8 rounded-lg shadow-md w-full max-w-md sm:max-w-xl filter backdrop-blur-xl text-center mx-4">
-            <!-- Logo -->
-            <div class="flex justify-center mb-4 sm:mb-6">
-                <img src="{{ asset('gif/the-plane-13509_512.gif') }}" alt="Descripción del GIF" class="w-32 sm:w-48 h-auto animate-pulse">
+        :root {
+            --primary-color: #0077BE;
+            --secondary-color: #002244;
+            --accent-color: #FF6600;
+            --background-color: #F0F8FF;
+            --text-color: #333333;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 34, 68, 0.1);
+        }
+
+        .brand-logo {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: rgba(240, 248, 255, 0.5);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--primary-color);
+        }
+
+        .input-group label {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            color: #6c757d;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .input-group input:focus + label,
+        .input-group input:not(:placeholder-shown) + label {
+            top: 0;
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            background-color: white;
+            padding: 0 5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover::after {
+            top: -100%;
+            left: -100%;
+        }
+
+        .social-login-btn {
+            transition: all 0.3s ease;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .social-login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #background-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            background-color: rgba(0, 119, 190, 0.1);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <canvas id="background-canvas"></canvas>
+    <div class="floating-shapes"></div>
+
+    <div class="login-container max-w-md w-full space-y-8 p-10 relative z-10">
+        <div class="text-center">
+            <h1 class="brand-logo text-5xl mb-2">SkyWings</h1>
+            <p class="text-gray-600 text-sm">Tu viaje comienza aquí</p>
+        </div>
+
+        <h2 class="mt-6 text-center text-3xl font-bold text-gray-900">
+            Bienvenido a bordo
+        </h2>
+
+        <form class="mt-8 space-y-6" action="{{ route('login') }}" method="POST">
+            @csrf
+            <div class="input-group">
+                <input id="email" name="email" type="email" autocomplete="email" required placeholder=" ">
+                <label for="email">Correo electrónico</label>
+            </div>
+            <div class="input-group">
+                <input id="password" name="password" type="password" autocomplete="current-password" required placeholder=" ">
+                <label for="password">Contraseña</label>
             </div>
 
-            <!-- Título -->
-            <h2 class="text-3xl sm:text-5xl font-extrabold text-center text-black mb-4 sm:mb-6">Ingresa tu usuario</h2>
-            <p class="text-center text-white mb-4 sm:mb-6">Si ya eres parte de <span class="text-blue-600 font-bold text-lg sm:text-xl">ANEMIS</span>, ingresa tus datos:</p>
-
-            <!-- Formulario -->
-            <form method="POST" action="{{ route('login') }}" class="space-y-4">
-                @csrf
-
-                <!-- Email Address -->
-                <div class="mb-4 text-center">
-                    <x-input-label for="email" :value="__('Email')" class="text-left sm:ml-16"/>
-                    <x-text-input id="email"
-                        class="block mx-auto mt-1 w-full sm:w-3/4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-300"
-                        type="text" name="email" :value="old('email')" placeholder="Ingresa un email"
-                        required autofocus autocomplete="username" />
-                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                </div>
-
-                <!-- Password -->
-                <div class="mt-4 text-center">
-                    <x-input-label for="password" :value="__('Password')" class="text-left sm:ml-16"/>
-                    <x-text-input id="password"
-                        class="block mx-auto mt-1 w-full sm:w-3/4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-300"
-                        type="password" name="password" required autocomplete="current-password" placeholder="Password" />
-                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                </div>
-
-                <!-- Recordar -->
-                <div class="block mt-4 text-center">
-                    <label for="remember_me" class="inline-flex items-center">
-                        <input id="remember_me" type="checkbox"
-                            class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500 transition duration-300"
-                            name="remember">
-                        <span class="ml-2 text-sm text-gray-300">{{ __('Recordar') }}</span>
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <input id="remember_me" name="remember" type="checkbox" class="h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300 rounded">
+                    <label for="remember_me" class="ml-2 block text-sm text-gray-900">
+                        Recuérdame
                     </label>
                 </div>
 
-                <!-- Botón Continuar -->
-                <div class="flex items-center justify-center mt-6">
-                    <button
-                        class="w-full sm:w-3/4 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold py-2 px-4 rounded-lg transition-transform duration-300 transform hover:scale-105">
-                        {{ __('Continuar') }}
-                    </button>
+                <div class="text-sm">
+                    <a href="{{ route('password.request') }}" class="font-medium text-blue-600 hover:text-blue-500 transition duration-150 ease-in-out">
+                        ¿Olvidaste tu contraseña?
+                    </a>
                 </div>
-            </form>
-
-            <!-- Crear cuenta -->
-            <div class="text-center mt-6">
-                <a href="{{ route('register') }}" class="text-black font-semibold hover:underline hover:text-blue-500 transition duration-300">Crear cuenta</a>
             </div>
 
-            <!-- Recuperar acceso -->
-            <div class="text-center mt-4">
-                @if (Route::has('password.request'))
-                    <a href="{{ route('password.request') }}" class="text-blue-400 hover:underline hover:text-blue-500 transition duration-300">Recupera el acceso</a>
-                @endif
+            <div>
+                <button type="submit" class="btn-primary group relative w-full flex justify-center py-3 px-4 text-sm font-medium rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+                    <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                        <i class="fas fa-plane-departure"></i>
+                    </span>
+                    Iniciar sesión
+                </button>
+            </div>
+        </form>
+
+        <div class="mt-6">
+            <div class="relative">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-300"></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                    <span class="px-2 bg-white text-gray-500">
+                        O continúa con
+                    </span>
+                </div>
+            </div>
+
+            <div class="mt-6 grid grid-cols-3 gap-3">
+                <button class="social-login-btn w-full flex justify-center py-2 px-4 rounded-md shadow-sm text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <i class="fab fa-facebook-f text-blue-600"></i>
+                </button>
+                <button class="social-login-btn w-full flex justify-center py-2 px-4 rounded-md shadow-sm text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <i class="fab fa-google text-red-600"></i>
+                </button>
+                <button class="social-login-btn w-full flex justify-center py-2 px-4 rounded-md shadow-sm text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <i class="fab fa-twitter text-blue-400"></i>
+                </button>
             </div>
         </div>
+
+        <p class="mt-8 text-center text-sm text-gray-600">
+            ¿No tienes una cuenta?
+            <a href="{{ route('register') }}" class="font-medium text-blue-600 hover:text-blue-500 transition duration-150 ease-in-out">
+                Regístrate ahora
+            </a>
+        </p>
     </div>
-</x-guest-layout>
+
+    <script>
+        // Inicialización de Three.js
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('background-canvas'), alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        // Crear partículas
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 5000;
+        const posArray = new Float32Array(particlesCount * 3);
+
+        for (let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 5;
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.005,
+            color: 0x0077BE
+        });
+
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particlesMesh);
+
+        camera.position.z = 3;
+
+        const animate = () => {
+            requestAnimationFrame(animate);
+            particlesMesh.rotation.y += 0.001;
+            renderer.render(scene, camera);
+        };
+
+        animate();
+
+        // Responsive
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Animaciones con GSAP
+        gsap.from('.login-container', { duration: 1, opacity: 0, y: 50, ease: 'power3.out' });
+        gsap.from('.brand-logo', { duration: 1, opacity: 0, y: -50, ease: 'power3.out', delay: 0.5 });
+        gsap.from('form', { duration: 1, opacity: 0, x: -50, ease: 'power3.out', delay: 0.7 });
+        gsap.from('.social-login-btn', {
+            duration: 0.5,
+            opacity: 0,
+            y: 20,
+            ease: 'power3.out',
+            stagger: 0.1,
+            delay: 1
+        });
+
+        // Floating shapes animation
+        const shapesContainer = document.querySelector('.floating-shapes');
+        const shapesCount = 20;
+
+        for (let i = 0; i < shapesCount; i++) {
+            const shape = document.createElement('div');
+            shape.classList.add('shape');
+            shape.style.width = `${Math.random() * 50 + 10}px`;
+            shape.style.height = shape.style.width;
+            shape.style.left = `${Math.random() * 100}%`;
+            shape.style.top = `${Math.random() * 100}%`;
+            shapesContainer.appendChild(shape);
+
+            gsap.to(shape, {
+                x: `random(-100, 100)`,
+                y: `random(-100, 100)`,
+                duration: `random(10, 20)`,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut'
+            });
+        }
+    </script>
+</body>
+</html>

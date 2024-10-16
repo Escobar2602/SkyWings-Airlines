@@ -5,19 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Vuelo extends Model
+class Tripulacion extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'origen',
-        'destino',
-        'fecha',
-        'hora',
-    ];
+    protected $table = 'tripulacion';
 
-    protected $casts = [
-        'fecha' => 'date',
-        'hora' => 'datetime',
+    protected $fillable = [
+        'nombre',
+        'apellido',
+        'documento',
+        'destino',
     ];
 }

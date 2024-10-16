@@ -7,37 +7,35 @@ use Illuminate\Http\Request;
 
 class VueloController extends Controller
 {
+    public function index()
+    {
+        $vuelos = Vuelo::all();
+        return view('vuelos.index', compact('vuelos'));
+    }
+
+    public function create()
+    {
+        return view('vuelos.create');
+    }
+
     public function store(Request $request)
     {
-        $request->validate([
-            'origen' => 'required|string',
-            'destino' => 'required|string',
-            'hora_salida' => 'required',
-            'hora_llegada' => 'required',
-            'dia_salida' => 'required|date',
-            'valor' => 'required|numeric'
-        ]);
+        try {
+            $validatedData = $request->validate([
+                'origen' => 'required|string|max:255',
+                'destino' => 'required|string|max:255',
+                'fecha' => 'required|date',
+                'hora' => 'required|date_format:H:i',
+            ]);
 
-        Vuelo::create([
-            'origen' => $request->origen,
-            'destino' => $request->destino,
-            'hora_salida' => $request->dia_salida . ' ' . $request->hora_salida . ':00', // Concatenar la fecha y hora
-            'hora_llegada' => $request->dia_salida . ' ' . $request->hora_llegada . ':00',
-            'dia_salida' => $request->dia_salida,
-            'valor' => $request->valor,
-        ]);
+            $vuelo = Vuelo::create($validatedData);
+            
+            \Log::info('Vuelo creado: ' . $vuelo->id);
 
-
-        return redirect()->back()->with('success', 'Ruta de vuelo creada exitosamente.');
-    }
-    public function getOrigins()
-    {
-        return Vuelo::distinct('origen')->pluck('origen');
-    }
-
-    public function getDestinations()
-    {
-        return Vuelo::distinct('destino')->pluck('destino');
+            return redirect()->route('vuelos.index')->with('success', 'Vuelo creado exitosamente.');
+        } catch (\Exception $e) {
+            \Log::error('Error al crear vuelo: ' . $e->getMessage());
+            return back()->with('error', 'Error al crear el vuelo: ' . $e->getMessage())->withInput();
+        }
     }
 }
-
